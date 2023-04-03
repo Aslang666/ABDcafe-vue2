@@ -4,8 +4,6 @@ import App from './App'
 import Vue from 'vue'
 Vue.config.productionTip = false
 App.mpType = 'app'
-// import { Cell } from "wxcomponents/@vant/weapp/field/index";
-// Vue.use(cell,field,cell-group); 
 try {
   function isPromise(obj) {
     return (

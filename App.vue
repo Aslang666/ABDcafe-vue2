@@ -12,6 +12,8 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
+	  // @import "@/wxcomponents/@vant/weapp/common/index.css";
+	  @import "/wxcomponents/@vant/weapp/common/index.wxss";
 	/*每个页面公共css */
 </style>

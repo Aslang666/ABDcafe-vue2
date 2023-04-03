@@ -78,6 +78,8 @@
 			"van-cell":"wxcomponents/@vant/weapp/cell/index",
 			"van-picker":"wxcomponents/@vant/weapp/picker/index",
 			"van-goods-action":"wxcomponents/@vant/weapp/goods-action/index",
+			"van-goods-action-icon":"wxcomponents/@vant/weapp/goods-action-icon/index",
+			"van-goods-action-button":"wxcomponents/@vant/weapp/goods-action-button/index",
 			"van-toast":"wxcomponents/@vant/weapp/toast/index",
 			"van-stepper":"wxcomponents/@vant/weapp/stepper/index"
 			
