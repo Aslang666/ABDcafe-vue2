@@ -1,0 +1,111 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		}, {
+			"path": "pages/menu/menu",
+			"style": {
+				"navigationBarTitleText": "菜单",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "订单",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/personal/personal",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/security/security",
+			"style": {
+				"navigationBarTitleText": "安全中心",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "地址管理",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/profile/profile",
+			"style": {
+				"navigationBarTitleText": "个人资料",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/editaddr/editaddr",
+			"style": {
+				"navigationBarTitleText": "地址管理",
+				"enablePullDownRefresh": false
+			}
+		}, {
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "商品详情",
+				"enablePullDownRefresh": false
+			}
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {
+			"van-icon":"wxcomponents/@vant/weapp/icon/index",
+			"van-field":"wxcomponents/@vant/weapp/field/index",
+			"van-cell-group":"wxcomponents/@vant/weapp/cell-group/index",
+			"van-cell":"wxcomponents/@vant/weapp/cell/index",
+			"van-picker":"wxcomponents/@vant/weapp/picker/index",
+			"van-goods-action":"wxcomponents/@vant/weapp/goods-action/index",
+			"van-toast":"wxcomponents/@vant/weapp/toast/index",
+			"van-stepper":"wxcomponents/@vant/weapp/stepper/index"
+			
+		}
+	},
+	"tabBar": {
+		"selectedColor": "#002fa5",
+		"list": [{
+			"text": "首页",
+			"pagePath": "pages/index/index",
+			"iconPath": "static/home.png",
+			"selectedIconPath": "static/home_active.png"
+		}, {
+			"text": "菜单",
+			"pagePath": "pages/menu/menu",
+			"iconPath": "static/menu.png",
+			"selectedIconPath": "static/menu_active.png"
+		}, {
+			"text": "订单",
+			"pagePath": "pages/order/order",
+			"iconPath": "static/order.png",
+			"selectedIconPath": "static/order_active.png"
+		}, {
+			"text": "我的",
+			"pagePath": "pages/personal/personal",
+			"iconPath": "static/person.png",
+			"selectedIconPath": "static/person_active.png"
+		}]
+	},
+	"uniIdRouter": {}
+}
