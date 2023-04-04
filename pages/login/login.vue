@@ -9,50 +9,62 @@
 			会员权益
 		</span>
 		<!-- <view class=""> -->
-			<view class="block">
-				<view class="left">
-					<view class="text">
-						<image src="../../static/abbr.png" mode=""></image>
-						<span>专属客服</span>
-					</view><view class="text">
-						<image src="../../static/ticket.png" mode=""></image>
-						<span>优惠券</span>
-					</view><view class="text">
-						<image src="../../static/cafe.png" mode=""></image>
-						<span>邀请任喝</span>
-					</view>
+		<view class="block">
+			<view class="left">
+				<view class="text">
+					<image src="../../static/abbr.png" mode=""></image>
+					<span>专属客服</span>
 				</view>
-				<view class="right">
-					<button class="login_btn" @click="login">微信一键登录</button>
+				<view class="text">
+					<image src="../../static/ticket.png" mode=""></image>
+					<span>优惠券</span>
+				</view>
+				<view class="text">
+					<image src="../../static/cafe.png" mode=""></image>
+					<span>邀请任喝</span>
 				</view>
 			</view>
+			<view class="right">
+				<button class="login_btn" @click="login">微信一键登录</button>
+			</view>
+		</view>
 		<!-- </view> -->
 	</view>
 </template>
 
 <script>
-	export default{
-		methods:{
-			
-			login(){
-					 uni.getUserProfile({
-						  desc: '登录后可同步数据',
-						  lang: 'zh_CN',
-						  success: (res) => {
-							// console.log('getUserProfile', res);
-							uni.setStorageSync('user',res.userInfo)
-							if(uni.getStorageSync('user')){
-								uni.reLaunch({
-									url:'../index/index',
-								})
-							}
-						  },
+	export default {
+		methods: {
+
+			login() {
+				uni.login({
+					provider: 'weixin',
+					success: function(loginRes) {
+						console.log(loginRes);
+						let code = loginRes.code
+						// 获取用户信息
+						uni.getUserProfile({
+							desc: '登录后可同步数据',
+							lang: 'zh_CN',
+							success: (res) => {
+								console.log('getUserProfile', res);
+
+								uni.setStorageSync('token', code)
+								uni.setStorageSync('user', res.userInfo)
+								if (uni.getStorageSync('user')) {
+									uni.reLaunch({
+										url: '../index/index',
+									})
+								}
+							},
 						});
+					}
+				})
+
 			}
 		}
-		
+
 	}
-	
 </script>
 
 <style lang="scss" scoped>
@@ -87,15 +99,18 @@
 		margin: 20px auto;
 		font-size: 20px;
 		font-weight: 800;
+
 		span:nth-child(1) {
 			color: #002fa5;
 			font-size: 20px;
 		}
+
 		span {
 			color: #9d9d9d;
 			font-size: 17px;
 		}
 	}
+
 	.block {
 		width: 90%;
 		display: flex;
@@ -104,6 +119,7 @@
 		justify-content: space-evenly;
 		background: #fff;
 		border-radius: 5px;
+
 		.left {
 			width: 100%;
 			height: 100%;
@@ -113,20 +129,23 @@
 			font-size: 20px;
 			font-weight: 800;
 			justify-content: center;
+
 			.text {
 				display: flex;
 				align-items: center;
-				flex-direction: column;	
-			image {
-				width: 50px;
-				height: 50px;
-			}
+				flex-direction: column;
+
+				image {
+					width: 50px;
+					height: 50px;
+				}
 			}
 
 		}
-	
+
 		.right {
 			width: 100%;
+
 			.login_btn {
 				background-color: #002fa5;
 				color: #fff;

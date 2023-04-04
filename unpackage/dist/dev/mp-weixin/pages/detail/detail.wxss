@@ -66,14 +66,19 @@
 }
 .ec-chioce.data-v-3e159eb4 {
   display: flex;
+  gap: 10rpx;
   font-size: small;
 }
 .ec-chioce-item.data-v-3e159eb4 {
-  padding: 8rpx 0;
-  min-width: 124rpx;
+  display: flex;
+  min-width: 100rpx;
+  height: 25px;
   text-align: center;
   background-color: #e5e5e5;
   border-radius: 999rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: small;
 }
 .ec-chioce-item--active.data-v-3e159eb4 {
   color: #fff;
@@ -93,6 +98,7 @@
   align-items: center;
   padding: 32rpx 0;
   border-top: solid 1px #b8b8b8;
+  margin: 20rpx 0;
   border-bottom: solid 1px #b8b8b8;
 }
 .num-stepper__minus.data-v-3e159eb4 {
@@ -101,5 +107,14 @@
 }
 .num-stepper__plus.data-v-3e159eb4 {
   background-color: #0037ae !important;
+}
+.options.data-v-3e159eb4 {
+  margin-bottom: 20rpx;
+}
+.option.data-v-3e159eb4 {
+  margin-bottom: 20rpx;
+}
+.submit.data-v-3e159eb4 {
+  text-align: center;
 }
 
