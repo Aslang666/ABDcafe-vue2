@@ -69,7 +69,7 @@
             "path" : "pages/cart/cart",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "购物车",
                 "enablePullDownRefresh": false
             }
             
@@ -96,8 +96,7 @@
 			"van-dialog":"wxcomponents/@vant/weapp/dialog/index",
 			"van-submit-bar":"wxcomponents/@vant/weapp/submit-bar/index",
 			"van-tag":"wxcomponents/@vant/weapp/tag/index",
-			"van-checkbox":"wxcomponents/@vant/weapp/checkbox/index"
-			
+			"van-checkbox":"wxcomponents/@vant/weapp/checkbox/index"			
 		}
 	},
 	"tabBar": {

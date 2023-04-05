@@ -37,29 +37,30 @@
 		methods: {
 
 			login() {
-				uni.login({
-					provider: 'weixin',
-					success: function(loginRes) {
-						console.log(loginRes);
-						let code = loginRes.code
-						// 获取用户信息
-						uni.getUserProfile({
-							desc: '登录后可同步数据',
-							lang: 'zh_CN',
-							success: (res) => {
-								console.log('getUserProfile', res);
-
-								uni.setStorageSync('token', code)
-								uni.setStorageSync('user', res.userInfo)
-								if (uni.getStorageSync('user')) {
-									uni.reLaunch({
-										url: '../index/index',
-									})
-								}
-							},
-						});
-					}
-				})
+				// uni.login({
+				// 	provider: 'weixin',
+				// 	success: function(loginRes) {
+				// 		console.log(loginRes);
+				// 		let code = loginRes.code
+					
+				// 	}
+				// }),
+				// 获取用户信息
+				uni.getUserProfile({
+					desc: '登录后可同步数据',
+					lang: 'zh_CN',
+					success: (res) => {
+						console.log('getUserProfile', res);
+				
+						// uni.setStorageSync('token', code)
+						uni.setStorageSync('user', res.userInfo)
+						if (uni.getStorageSync('user')) {
+							uni.reLaunch({
+								url: '../index/index',
+							})
+						}
+					},
+				});
 
 			}
 		}

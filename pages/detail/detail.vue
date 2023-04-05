@@ -59,7 +59,7 @@
 			<van-goods-action-button text="立即购买" color="#0037ae" />
 		</van-goods-action>
 		<van-toast id="van-toast" />
-	<!-- 	<van-submit-bar price="3050" button-text="提交订单" @submit="onClickButton" v-show="showsubmit">
+<!-- 		<van-submit-bar price="3050" button-text="提交订单" @submit="onClickButton" v-show="showsubmit">
 			<van-tag type="primary">全选</van-tag>
 		</van-submit-bar> -->
 	</view>

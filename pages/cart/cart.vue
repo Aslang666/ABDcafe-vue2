@@ -5,7 +5,7 @@
 		<view class="product-list">
 		  <view v-for="(item,index) in content" :key="index">
 		    <view class="product">
-		      <van-checkbox class="product__checkbox" :value="item.checked" @change="onCheckBoxChange" checked-color="#0037ae" />
+		      <van-checkbox class="product__checkbox" :value="item.checked" @change="(val)=>onCheckBoxChange(val,item)" checked-color="#0037ae" />
 		      <image class="product__img" src="../../static/logo.png" mode="aspectFill" />
 		      <view class="product__detail">
 		        <view class="product__top">
@@ -25,10 +25,11 @@
 		    哎呀, 没有数据可加载了!
 		  </view>
 		</view>
-<!-- 		
-		<van-submit-bar price="riceSum" price-class="submit-price" button-text="提交订单" button-class="submit-btn" @submit="onSubmit" disabled="!selectedCount" tip="true">
-		  <van-checkbox value="isSelectAll" @change="onChangeSelectAll" checked-color="#0037ae">全选</van-checkbox>
-		</van-submit-bar> -->
+		
+<van-submit-bar :price="priceSum" price-class="submit-price" button-text="提交订单" button-class="submit-btn" @submit="onSubmit" >
+  <van-checkbox :value="isSelectAll" @change="onChangeSelectAll" checked-color="#0037ae">全选</van-checkbox>
+  <!-- <view slot="tip">您的收货地址不支持同城送, <text>修改地址</text></view> -->
+</van-submit-bar>
 		
 		<van-toast id="van-toast" />
 
@@ -40,36 +41,42 @@
 		data() {
 			return {
 				content: [{
+					id:1,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
 					price: '11.5',
 					checked:false,
 					count:1
 				},{
+					id:2,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
 					price: '11.5',
 					checked:true,
 					count:1
 				},{
+					id:3,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
 					price: '11.5',
 					checked:false,
 					count:1
 				},{
+					id:4,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
 					price: '11.5',
 					checked:false,
 					count:1
 				},{
+					id:1,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
 					price: '11.5',
 					checked:false,
 					count:1
 				},{
+					id:5,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
 					price: '11.5',
@@ -78,21 +85,38 @@
 				}],
 				    selectedCount: 0,
 				    isSelectAll: false,
-				    priceSum: 0,
+				    priceSum: 5,
+					orderList:[]
 			}
 		},
 		methods: {
-			onCheckBoxChange(e){
-				console.log("onCheckBoxChange",e);
+			onCheckBoxChange(e,a){
+				console.log("onCheckBoxChange",e,a);
+				// this.orderList = []
+				this.content.forEach(item=>{
+					if(item.id === a.id){
+						item.checked = e.detail
+					}
+				})
+
 			},
 			onNumChange(e){
 				console.log("onNumChange",e);
+
 			},
 			onChangeSelectAll(e){
 				console.log("onChangeSelectAll",e);
+				      this.isSelectAll = e.detail
+					  this.content.forEach(item=>{
+						  item.checked = e.detail
+					  })
 			},
 			onSubmit(e){
 				console.log("onSubmit",e);
+				let list = this.content.filter(item=>{
+					return item.checked === true
+				})
+				console.log(list);
 			}
 		}
 	}

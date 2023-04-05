@@ -779,8 +779,8 @@ function populateParameters(result) {
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
-    uniCompileVersion: "3.7.9",
-    uniRuntimeVersion: "3.7.9",
+    uniCompileVersion: "3.7.8",
+    uniRuntimeVersion: "3.7.8",
     uniPlatform: undefined || "mp-weixin",
     deviceBrand: deviceBrand,
     deviceModel: model,
@@ -9456,7 +9456,7 @@ internalMixin(Vue);
 /***/ }),
 /* 26 */
 /*!***************************************!*\
-  !*** D:/code/ABDcafe-vue2/pages.json ***!
+  !*** D:/元数科技/ABDcafe-vue2/pages.json ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -9666,9 +9666,11 @@ function normalizeComponent (
 /* 96 */,
 /* 97 */,
 /* 98 */,
-/* 99 */
+/* 99 */,
+/* 100 */,
+/* 101 */
 /*!********************************************!*\
-  !*** D:/code/ABDcafe-vue2/utils/region.js ***!
+  !*** D:/元数科技/ABDcafe-vue2/utils/region.js ***!
   \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
