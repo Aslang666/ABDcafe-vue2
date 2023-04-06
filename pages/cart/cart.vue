@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<view v-if="user">
 		<image class="header-img" src="../../static/cafebg.jpg" mode="widthFix" />
 		
 		<view class="product-list">
@@ -10,13 +11,13 @@
 		      <view class="product__detail">
 		        <view class="product__top">
 		          <view class="product__name">{{item.name}}</view>
-		          <!-- <view class="product__rules">{{item.rule}}</view> -->
-		          <!-- <view class="product__delete" @tap="onDeleteProduct"><van-icon name="delete-o" color="#8e8e8e" /></view> -->
+		          <view class="product__rules">{{item.rule.ice}}/{{item.rule.sugar}}</view>
+		          <view class="product__delete" @tap="(val)=>onDeleteProduct(val,item)"><van-icon name="delete-o" color="#8e8e8e" /></view>
 		        </view>
 		        <!-- <view class="product__en-name">{{item.enname}}</view> -->
 		        <view class="product__bottom">
 		          <text class="product__price">¥ {{item.price}}</text>
-		          <van-stepper class="num-stepper" minus-class="num-stepper__minus" plus-class="num-stepper__plus" theme="round" button-size="40rpx" :value="item.count" @change="onNumChange" />
+		          <van-stepper class="num-stepper" minus-class="num-stepper__minus" plus-class="num-stepper__plus" theme="round" button-size="40rpx" :value="item.count" @change="(val)=>onNumChange(val,item)" />
 		        </view>
 		      </view>
 		    </view>
@@ -26,7 +27,7 @@
 		  </view>
 		</view>
 		
-<van-submit-bar :price="priceSum" price-class="submit-price" button-text="提交订单" button-class="submit-btn" @submit="onSubmit" >
+<van-submit-bar :price="priceSum" price-class="submit-price" button-text="提交订单" button-class="submit-btn" @submit="onSubmit" :disabled="tocommit" >
   <van-checkbox :value="isSelectAll" @change="onChangeSelectAll" checked-color="#0037ae">全选</van-checkbox>
   <!-- <view slot="tip">您的收货地址不支持同城送, <text>修改地址</text></view> -->
 </van-submit-bar>
@@ -34,89 +35,177 @@
 		<van-toast id="van-toast" />
 
 	</view>
+<view class="no_address" v-else>
+			<view class="no_img">
+			  <image class="" src="../../static/nologin.png"></image>
+			</view>
+			<view class="no_text">
+				<span>您尚未登录账号</span> 
+				<span>请先登录</span>
+				<button @click="toLogin">跳转登录</button>
+			</view>
+		</view>
+	</view>
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
+				tocommit:true,
+				user:uni.getStorageSync('user')|0,
 				content: [{
 					id:1,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-					price: '11.5',
+					rule:{
+						ice:'加冰',
+						sugar:'正常糖'
+					},
+					price: 11.5,
 					checked:false,
-					count:1
+					count:1,
+					allprice:11.5
 				},{
 					id:2,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-					price: '11.5',
-					checked:true,
-					count:1
+					rule:{
+						ice:'加冰',
+						sugar:'正常糖'
+					},
+					price: 11.5,
+					checked:false,
+					count:1,
+					allprice:11.5
 				},{
 					id:3,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-					price: '11.5',
+					rule:{
+						ice:'加冰',
+						sugar:'正常糖'
+					},
+					price: 11.5,
 					checked:false,
-					count:1
+					count:1,
+					allprice:11.5
 				},{
 					id:4,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-					price: '11.5',
+					rule:{
+						ice:'加冰',
+						sugar:'正常糖'
+					},
+					price: 11.5,
 					checked:false,
-					count:1
-				},{
-					id:1,
-					name: '流沙美式',
-					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-					price: '11.5',
-					checked:false,
-					count:1
+					count:1,
+					allprice:11.5
 				},{
 					id:5,
 					name: '流沙美式',
 					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-					price: '11.5',
+					rule:{
+						ice:'加冰',
+						sugar:'正常糖'
+					},
+					price: 11.5,
 					checked:false,
-					count:1
+					count:1,
+					allprice:11.5
+				},{
+					id:6,
+					name: '流沙美式',
+					desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
+					rule:{
+						ice:'加冰',
+						sugar:'正常糖'
+					},
+					price: 11.5,
+					checked:false,
+					count:1,
+					allprice:11.5
 				}],
 				    selectedCount: 0,
 				    isSelectAll: false,
-				    priceSum: 5,
-					orderList:[]
+				    priceSum: 0,
+					orderList:{
+						products:[],
+						priceSum:0
+					}
 			}
 		},
 		methods: {
 			onCheckBoxChange(e,a){
 				console.log("onCheckBoxChange",e,a);
-				// this.orderList = []
+				this.priceSum = 0
+				this.tocommit=true
 				this.content.forEach(item=>{
 					if(item.id === a.id){
 						item.checked = e.detail
 					}
+					if(item.checked===true){
+						this.tocommit = false
+						this.priceSum  +=item.allprice*100
+						console.log(this.priceSum);
+						this.orderList.priceSum = this.priceSum
+					}
 				})
 
 			},
-			onNumChange(e){
-				console.log("onNumChange",e);
+			onNumChange(e,a){
+				console.log("onNumChange",e,a);
+				this.priceSum = 0
+				this.tocommit=true
+				this.content.forEach(item=>{
+					if(item.id === a.id){
+						item.count = e.detail
+						item.allprice =  item.count*item.price
+						console.log(item);
+					}
+					if(item.checked===true){
+						this.tocommit = false
+						this.priceSum  +=item.allprice*100
+						console.log(this.priceSum);
+						this.orderList.priceSum = this.priceSum
+					}
+				})
 
 			},
 			onChangeSelectAll(e){
 				console.log("onChangeSelectAll",e);
 				      this.isSelectAll = e.detail
+					  this.priceSum = 0
+					  this.tocommit=true
 					  this.content.forEach(item=>{
 						  item.checked = e.detail
+						  if(item.checked===true){
+						  	this.tocommit = false
+						  	this.priceSum  +=item.allprice*100
+						  	console.log(this.priceSum);
+						  	this.orderList.priceSum = this.priceSum
+						  }
 					  })
+			},
+			onDeleteProduct(e,a){
+				console.log(e,a);
 			},
 			onSubmit(e){
 				console.log("onSubmit",e);
 				let list = this.content.filter(item=>{
 					return item.checked === true
 				})
-				console.log(list);
+				this.orderList.products = list
+				console.log(this.orderList);
+				uni.navigateTo({
+					url:`/pages/commit/commit?order=${JSON.stringify(this.orderList)}`,
+				})
+			},
+			toLogin(){
+				uni.navigateTo({
+					url:'../login/login'
+				})
 			}
 		}
 	}
@@ -147,8 +236,8 @@
   align-self: center;
 }
 .product__img{
-  width: 160rpx;
-  height: 160rpx;
+  width: 120rpx;
+  height: 120rpx;
 }
 
 .product__detail{
@@ -161,6 +250,7 @@
 
 .product__top{
   display: flex;
+  align-items: center;
 }
 .product__name{
   flex-shrink: 0;
@@ -174,6 +264,7 @@
 }
 .product__delete{
   flex-shrink: 0;
+
 }
 .product__en-name{
   flex-grow: 1;
@@ -207,5 +298,37 @@
   background-color: #0037ae !important;
   border-color: #0037ae !important;
 }
-
+.no_address{
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	.no_img{
+		display: flex;
+		justify-content: center;
+		width: 340px;
+		height: 340px;
+		margin: auto ;
+		image{
+		width: 340px;
+		height: 340px;	
+		}
+	}
+	.no_text{
+		margin-top: -40px;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 20rpx;
+		text-align: center;
+		color: #595a5b;
+		font-weight: 600;
+		font-size: 18px;
+		text{
+			color: #0037ae;
+		}
+		button{
+			color: #fff;
+			background-color: #0037ae;
+		}
+	}
+}
 </style>

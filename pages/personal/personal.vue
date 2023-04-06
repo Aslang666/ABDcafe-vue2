@@ -54,14 +54,7 @@
 		},
 		methods:{
 			onClickSetting(res){
-				if (res == '../order/order') {
-					uni.switchTab({
-						url: res,
-						success: (res) => {
-							console.log(res);
-						}
-					});
-				} else {
+
 					uni.navigateTo({
 						url: res,
 						animationType: 'pop-in',
@@ -69,9 +62,7 @@
 						success: (res) => {
 							console.log(res);
 						}
-					});
-			
-				}
+					})
 			}
 		}
 	}

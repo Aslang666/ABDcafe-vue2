@@ -2,9 +2,9 @@
 	<view class="container">
 		<view class="sidebar">
 			<scroll-view class="sidebar-content" scroll-y="true" @catchtouchmove="stopPropagation">
-				<view v-for="(item, index) in menuList" :key="index" class="sidebar-item"
+				<view v-for="(item, index) in categories" :key="index" class="sidebar-item"
 					:class="{active: activeIndex === index}" @click="switchTab(index)">
-					{{ item.title }}
+					{{ item.name }}
 				</view>
 			</scroll-view>
 		</view>
@@ -12,24 +12,24 @@
 			<scroll-view class="main-content" scroll-y="true"
 				:scroll-top="scrollTop" @catchtouchmove="stopPropagation" @scrolltolower="scrollToLower"
 				@scrolltoupper="scrollToUpper" scroll-with-animation="true">
-				<view v-for="(item, index) in menuList" :key="index" class="tab-item"
+				<view v-for="(item, index) in categories" :key="index" class="tab-item"
 					:class="{active: activeIndex === index}">
 					<view class="product-list">
 						<view class="banner">
-							<span>{{item.title}}</span>
+							<span>{{item.name}}</span>
 							<image src="../../static/cafebg.jpg" mode=""></image>
 						</view>
-						<view v-for="(list,index) in item.content" :key="index">
-							<view class="product"  @click="tapToDetail(list)">
+						<view v-for="(list,index) in drinks" :key="index">
+							<view class="product"  @click="(val)=>tapToDetail(val,list)">
 								<view class="product__img">
 
-									<image class="product__img" src="../../static/loginbg.jpg" mode="widthFix" />
+									<image class="img" :src="baseUrl+list.main_image" mode="widthFix" />
 								</view>
 								<view class="product__names">
 									<view class="product__zh-name">{{list.name}}</view>
-									<view class="product__en-name">{{list.desc}}</view>
+									<view class="product__en-name">{{list.description}}</view>
 								</view>
-								<view class="product__price">¥ 17</view>
+								<view class="product__price">¥ {{list.price}}</view>
 							</view>
 						</view>
 					</view>
@@ -40,15 +40,20 @@
 </template>
 
 <script>
+	import {getDrinks,getDrinksCategory} from '../../router/api.js';
 	export default {
 		data() {
 			return {
+				baseUrl:'http://127.0.0.1:8000/',
+				drinks:[],
+				categories:[],
 				menuList: [{
 						title: '经典咖啡',
 						content: [{
 							name: '流沙美式',
 							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
 							price: '11.5',
+							image:''
 						},{
 							name: '流沙美式',
 							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
@@ -132,6 +137,17 @@
 				contentHeight: 0
 			}
 		},
+		mounted() {
+			getDrinksCategory().then(res=>{
+				this.categories = res.data
+				console.log(this.categories);
+			}),
+			getDrinks().then(res=>{
+				console.log(res);
+				this.drinks = res.data
+				console.log(this.drinks);
+			})
+		},
 		methods: {
 			switchTab(index) {
 				this.activeIndex = index
@@ -156,10 +172,10 @@
 					
 				}
 			},
-			tapToDetail(e){
-				console.log(e);
+			tapToDetail(e,a){
+				console.log(e,a);
 				uni.navigateTo({
-					url:'/pages/detail/detail?productid='+e.name
+					url:'/pages/detail/detail?drinkdetail='+JSON.stringify(a)
 				})
 			}
 		},
@@ -244,8 +260,12 @@
 	}
 
 	.product__img {
-		width: 160rpx;
-		height: 160rpx;
+		width: 150rpx;
+		height: 150rpx;
+		.img{
+			width: 150rpx !important;
+			height: 150rpx !important;
+		}
 	}
 
 	.product__names {

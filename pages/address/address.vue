@@ -29,6 +29,7 @@
 			<view class="no_text">
 				<span>请添加收获地址</span> 
 				<span><text>ABDcafé</text>美味直达您身边</span>
+				<button @click="toAddaddr">添加地址</button>
 			</view>
 		</view>
 	</view>
@@ -45,6 +46,12 @@
 			onCLickEdit(){
 				uni.navigateTo({
 					url:'../editaddr/editaddr'
+				})
+			},
+			toAddaddr(){
+				uni.navigateTo({
+					url:'../editaddr/editaddr'
+					// url:`../editaddr/editaddr?exist=`
 				})
 			}
 		}
@@ -120,12 +127,17 @@
 		margin-top: -40px;
 		display: flex;
 		flex-direction: column;
+		margin-bottom: 20rpx;
 		text-align: center;
 		color: #595a5b;
 		font-weight: 600;
 		font-size: 18px;
 		text{
 			color: #0037ae;
+		}
+		button{
+			color: #fff;
+			background-color: #0037ae;
 		}
 	}
 }

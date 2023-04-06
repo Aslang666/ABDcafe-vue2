@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */,
-/* 1 */
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ 1:
 /*!*********************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js ***!
   \*********************************************************/
@@ -43,7 +43,1280 @@ var _default = target[key];
 exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ 10:
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 101:
+/*!********************************************!*\
+  !*** D:/code/ABDcafe-vue2/utils/region.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var columns = [{
+  text: '佛山市',
+  value: 'Foshan',
+  children: [{
+    text: '禅城区',
+    value: 'Chancheng',
+    children: [{
+      text: '张槎街道',
+      value: 'zhangcha'
+    }, {
+      text: '祖庙街道',
+      value: 'zumiao'
+    }, {
+      text: '南庄镇',
+      value: 'nanzhuang'
+    }, {
+      text: '百胜镇',
+      value: 'baisheng'
+    }, {
+      text: '石湾镇',
+      value: 'shiwan'
+    }, {
+      text: '张槎高新区',
+      value: 'zhangchagaoxin'
+    }]
+  }, {
+    text: '南海区',
+    value: 'nanhai',
+    children: [{
+      text: '桂城街道',
+      value: 'guicheng'
+    }, {
+      text: '九江镇',
+      value: 'jiujiang'
+    }, {
+      text: '里水镇',
+      value: 'lishui'
+    }, {
+      text: '丹灶镇',
+      value: 'danzao'
+    }]
+  }, {
+    text: '顺德区',
+    value: 'shunde',
+    children: [{
+      text: '大良街道',
+      value: 'dalang'
+    }, {
+      text: '容桂街道',
+      value: 'ronggui'
+    }, {
+      text: '勒流街道',
+      value: 'leliu'
+    }, {
+      text: '龙江镇',
+      value: 'longjiang'
+    }]
+  }, {
+    text: '三水区',
+    value: 'sanshui',
+    children: [{
+      text: '西南街道',
+      value: 'xinan'
+    }, {
+      text: '乐平镇',
+      value: 'leping'
+    }, {
+      text: '大塘镇',
+      value: 'datang'
+    }, {
+      text: '沙塘镇',
+      value: 'shatang'
+    }]
+  }, {
+    text: '高明区',
+    value: 'gaoming',
+    children: [{
+      text: '荷城街道',
+      value: 'hecheng'
+    }, {
+      text: '杨和镇',
+      value: 'yanghe'
+    }, {
+      text: '明城镇',
+      value: 'mingcheng'
+    }]
+  }]
+}];
+
+// const columns = [{
+// 	text: '广东',
+// 	value: 'Guangdong',
+// 	children: [{
+// 			text: '广州',
+// 			value: 'Guangzhou',
+// 			children: [{
+// 					text: '天河区',
+// 					value: 'Tianhe'
+// 				},
+// 				{
+// 					text: '海珠区',
+// 					value: 'Haizhu'
+// 				},
+// 				{
+// 					text: '荔湾区',
+// 					value: 'Liwan'
+// 				},
+// 				{
+// 					text: '越秀区',
+// 					value: 'Yuexiu'
+// 				},
+// 				{
+// 					text: '番禺区',
+// 					value: 'Panyu'
+// 				},
+// 				{
+// 					text: '黄埔区',
+// 					value: 'Huangpu'
+// 				},
+// 				{
+// 					text: '白云区',
+// 					value: 'Baiyun'
+// 				},
+// 				{
+// 					text: '南沙区',
+// 					value: 'Nansha'
+// 				},
+// 				{
+// 					text: '从化区',
+// 					value: 'Conghua'
+// 				},
+// 				{
+// 					text: '增城区',
+// 					value: 'Zengcheng'
+// 				}
+// 			]
+// 		},
+// 		{
+// 			text: '深圳',
+// 			value: 'Shenzhen',
+// 			children: [{
+// 					text: '福田区',
+// 					value: 'Futian'
+// 				},
+// 				{
+// 					text: '罗湖区',
+// 					value: 'Luohu'
+// 				},
+// 				{
+// 					text: '南山区',
+// 					value: 'Nanshan'
+// 				},
+// 				{
+// 					text: '宝安区',
+// 					value: 'Baoan'
+// 				},
+// 				{
+// 					text: '龙岗区',
+// 					value: 'Longgang'
+// 				},
+// 				{
+// 					text: '盐田区',
+// 					value: 'Yantian'
+// 				},
+// 				{
+// 					text: '龙华区',
+// 					value: 'Longhua'
+// 				},
+// 				{
+// 					text: '坪山区',
+// 					value: 'Pingshan'
+// 				},
+// 				{
+// 					text: '光明区',
+// 					value: 'Guangming'
+// 				}
+// 			]
+// 		},
+// 		{
+// 			text: '珠海',
+// 			value: 'Zhuhai',
+// 			children: [{
+// 					text: '香洲区',
+// 					value: 'Xiangzhou'
+// 				},
+// 				{
+// 					text: '金湾区',
+// 					value: 'Jinwan'
+// 				},
+// 				{
+// 					text: '斗门区',
+// 					value: 'Doumen'
+// 				}
+// 			]
+// 		},
+// 		{
+// 			text: '汕头',
+// 			value: 'Shantou',
+// 			children: [{
+// 					text: '金平区',
+// 					value: 'Jinping'
+// 				},
+// 				{
+// 					text: '龙湖区',
+// 					value: 'Longhu'
+// 				},
+// 				{
+// 					text: '澄海区',
+// 					value: 'Chenghai'
+// 				},
+// 				{
+// 					text: '潮阳区',
+// 					value: 'Chaoyang'
+// 				},
+// 				{
+// 					text: '潮南区',
+// 					value: 'Chaonan'
+// 				},
+// 				{
+// 					text: '濠江区',
+// 					value: 'Haojiang'
+// 				},
+// 				{
+// 					text: '南澳县',
+// 					value: 'Nanao'
+// 				}
+// 			]
+// 		}, {
+// 			text: '韶关',
+// 			value: 'Shaoguan',
+// 			children: [{
+// 					text: '浈江区',
+// 					value: 'Zhenjiang'
+// 				},
+// 				{
+// 					text: '武江区',
+// 					value: 'Wujiang'
+// 				},
+// 				{
+// 					text: '浈江区',
+// 					value: 'Zhenjiang'
+// 				},
+// 				{
+// 					text: '曲江区',
+// 					value: 'Qujiang'
+// 				},
+// 				{
+// 					text: '始兴县',
+// 					value: 'Shixing'
+// 				},
+// 				{
+// 					text: '仁化县',
+// 					value: 'Renhua'
+// 				},
+// 				{
+// 					text: '翁源县',
+// 					value: 'Wengyuan'
+// 				},
+// 				{
+// 					text: '乳源瑶族自治县',
+// 					value: 'Ruyuan'
+// 				},
+// 				{
+// 					text: '新丰县',
+// 					value: 'Xinfeng'
+// 				},
+// 				{
+// 					text: '乐昌市',
+// 					value: 'Lechang'
+// 				},
+// 				{
+// 					text: '南雄市',
+// 					value: 'Nanxiong'
+// 				}
+// 			]
+// 		},
+
+// 		{
+// 			text: '佛山',
+// 			value: 'Foshan',
+// 			children: [{
+// 					text: '禅城区',
+// 					value: 'Chancheng'
+// 				},
+// 				{
+// 					text: '南海区',
+// 					value: 'Nanhai'
+// 				},
+// 				{
+// 					text: '顺德区',
+// 					value: 'Shunde'
+// 				},
+// 				{
+// 					text: '三水区',
+// 					value: 'Sanshui'
+// 				},
+// 				{
+// 					text: '高明区',
+// 					value: 'Gaoming'
+// 				},
+// 			],
+// 		}, {
+// 			text: '江门',
+// 			value: 'Jiangmen',
+// 			children: [{
+// 					text: '蓬江区',
+// 					value: 'Pengjiang'
+// 				},
+// 				{
+// 					text: '江海区',
+// 					value: 'Jianghai'
+// 				},
+// 				{
+// 					text: '新会区',
+// 					value: 'Xinhui'
+// 				},
+// 				{
+// 					text: '台山市',
+// 					value: 'Taishan'
+// 				},
+// 				{
+// 					text: '开平市',
+// 					value: 'Kaiping'
+// 				},
+// 				{
+// 					text: '鹤山市',
+// 					value: 'Heshan'
+// 				},
+// 				{
+// 					text: '恩平市',
+// 					value: 'Enping'
+// 				},
+// 			],
+// 		},
+// 		{
+// 			text: '湛江',
+// 			value: 'Zhanjiang',
+// 			children: [{
+// 					text: '赤坎区',
+// 					value: 'Chikan'
+// 				},
+// 				{
+// 					text: '霞山区',
+// 					value: 'Xiashan'
+// 				},
+// 				{
+// 					text: '坡头区',
+// 					value: 'Potou'
+// 				},
+// 				{
+// 					text: '麻章区',
+// 					value: 'Mazhang'
+// 				},
+// 				{
+// 					text: '遂溪县',
+// 					value: 'Suixi'
+// 				},
+// 				{
+// 					text: '徐闻县',
+// 					value: 'Xuwen'
+// 				},
+// 				{
+// 					text: '廉江市',
+// 					value: 'Lianjiang'
+// 				},
+// 				{
+// 					text: '雷州市',
+// 					value: 'Leizhou'
+// 				},
+// 				{
+// 					text: '吴川市',
+// 					value: 'Wuchuan'
+// 				},
+// 			],
+// 		},
+// 		{
+// 			text: '茂名',
+// 			value: 'Maoming',
+// 			children: [{
+// 					text: '茂南区',
+// 					value: 'Maonan'
+// 				},
+// 				{
+// 					text: '电白区',
+// 					value: 'Dianbai'
+// 				},
+// 				{
+// 					text: '高州市',
+// 					value: 'Gaozhou'
+// 				},
+// 				{
+// 					text: '化州市',
+// 					value: 'Huazhou'
+// 				},
+// 				{
+// 					text: '信宜市',
+// 					value: 'Xinyi'
+// 				},
+// 			],
+// 		},
+// 		{
+// 			text: '肇庆',
+// 			value: 'Zhaoqing',
+// 			children: [{
+// 					text: '端州区',
+// 					value: 'Duanzhou'
+// 				},
+// 				{
+// 					text: '鼎湖区',
+// 					value: 'Dinghu'
+// 				},
+// 				{
+// 					text: '高要区',
+// 					value: 'Gaoyao'
+// 				},
+// 				{
+// 					text: '广宁县',
+// 					value: 'Guangning'
+// 				},
+// 				{
+// 					text: '怀集县',
+// 					value: 'Huaiji'
+// 				},
+// 				{
+// 					text: '封开县',
+// 					value: 'Fengkai'
+// 				},
+// 				{
+// 					text: '德庆县',
+// 					value: 'Deqing'
+// 				},
+// 				{
+// 					text: '四会市',
+// 					value: 'Sihui'
+// 				},
+// 			],
+// 		}, {
+// 			text: '惠州',
+// 			value: 'Huizhou',
+// 			children: [{
+// 					text: '惠城区',
+// 					value: 'Huicheng'
+// 				},
+// 				{
+// 					text: '惠阳区',
+// 					value: 'Huiyang'
+// 				},
+// 				{
+// 					text: '博罗县',
+// 					value: 'Boluo'
+// 				},
+// 				{
+// 					text: '惠东县',
+// 					value: 'Huidong'
+// 				},
+// 				{
+// 					text: '龙门县',
+// 					value: 'Longmen'
+// 				},
+// 			],
+// 		},
+// 		{
+// 			text: '梅州',
+// 			value: 'Meizhou',
+// 			children: [{
+// 					text: '梅江区',
+// 					value: 'Meijiang'
+// 				},
+// 				{
+// 					text: '梅县区',
+// 					value: 'Meixian'
+// 				},
+// 				{
+// 					text: '大埔县',
+// 					value: 'Dapu'
+// 				},
+// 				{
+// 					text: '丰顺县',
+// 					value: 'Fengshun'
+// 				},
+// 				{
+// 					text: '五华县',
+// 					value: 'Wuhua'
+// 				},
+// 				{
+// 					text: '平远县',
+// 					value: 'Pingyuan'
+// 				},
+// 				{
+// 					text: '蕉岭县',
+// 					value: 'Jiaoling'
+// 				},
+// 			],
+// 		},
+// 		{
+// 			text: '汕尾',
+// 			value: 'Shanwei',
+// 			children: [{
+// 					text: '城区',
+// 					value: 'Chengqu'
+// 				},
+// 				{
+// 					text: '海丰县',
+// 					value: 'Haifeng'
+// 				},
+// 				{
+// 					text: '陆河县',
+// 					value: 'Luhe'
+// 				},
+// 				{
+// 					text: '陆丰市',
+// 					value: 'Lufeng'
+// 				},
+// 			],
+// 		},
+// 		{
+// 			text: '河源',
+// 			value: 'Heyuan',
+// 			children: [{
+// 					text: '源城区',
+// 					value: 'Yuancheng'
+// 				},
+// 				{
+// 					text: '紫金县',
+// 					value: 'Zijin'
+// 				},
+// 				{
+// 					text: '龙川县',
+// 					value: 'Longchuan'
+// 				},
+// 				{
+// 					text: '连平县',
+// 					value: 'Lianping'
+// 				},
+// 				{
+// 					text: '和平县',
+// 					value: 'Heping'
+// 				},
+// 				{
+// 					text: '东源县',
+// 					value: 'Dongyuan'
+// 				},
+// 			],
+// 		},
+// 		{
+// 			text: '阳江',
+// 			value: 'Yangjiang',
+// 			children: [{
+// 					text: '江城区',
+// 					value: 'Jiangcheng'
+// 				},
+// 				{
+// 					text: '阳东区',
+// 					value: 'Yangdong'
+// 				},
+// 				{
+// 					text: '阳西县',
+// 					value: 'Yangxi'
+// 				},
+// 				{
+// 					text: '阳春市',
+// 					value: 'Yangchun'
+// 				},
+// 				{
+// 					text: '海陵岛经济开发试验区',
+// 					value: 'Hailingdao'
+// 				},
+// 				{
+// 					text: '高新技术产业开发区',
+// 					value: 'Gaoxin'
+// 				}
+// 			]
+// 		}, {
+// 			text: '清远',
+// 			value: 'Qingyuan',
+// 			children: [{
+// 					text: '清城区',
+// 					value: 'Qingcheng'
+// 				},
+// 				{
+// 					text: '清新区',
+// 					value: 'Qingxin'
+// 				},
+// 				{
+// 					text: '佛冈县',
+// 					value: 'Fogang'
+// 				},
+// 				{
+// 					text: '阳山县',
+// 					value: 'Yangshan'
+// 				},
+// 				{
+// 					text: '连山壮族瑶族自治县',
+// 					value: 'Lianshan'
+// 				},
+// 				{
+// 					text: '连南瑶族自治县',
+// 					value: 'Liannan'
+// 				},
+// 				{
+// 					text: '英德市',
+// 					value: 'Yingde'
+// 				},
+// 				{
+// 					text: '连州市',
+// 					value: 'Lianzhou'
+// 				},
+// 				{
+// 					text: '清新县',
+// 					value: 'QingxinXian'
+// 				}
+// 			]
+// 		},
+// 		{
+// 			text: '东莞',
+// 			value: 'Dongguan',
+// 			children: [{
+// 					text: '莞城区',
+// 					value: 'Guancheng'
+// 				},
+// 				{
+// 					text: '南城区',
+// 					value: 'Nancheng'
+// 				},
+// 				{
+// 					text: '万江区',
+// 					value: 'Wanjiang'
+// 				},
+// 				{
+// 					text: '东城区',
+// 					value: 'Dongcheng'
+// 				},
+// 				{
+// 					text: '石碣镇',
+// 					value: 'Shijie'
+// 				},
+// 				{
+// 					text: '石龙镇',
+// 					value: 'Shilong'
+// 				},
+// 				{
+// 					text: '茶山镇',
+// 					value: 'Chashan'
+// 				},
+// 				{
+// 					text: '石排镇',
+// 					value: 'Shipai'
+// 				},
+// 				{
+// 					text: '企石镇',
+// 					value: 'Qishi'
+// 				},
+// 				{
+// 					text: '横沥镇',
+// 					value: 'Hengli'
+// 				},
+// 				{
+// 					text: '桥头镇',
+// 					value: 'Qiaotou'
+// 				},
+// 				{
+// 					text: '谢岗镇',
+// 					value: 'Xiegang'
+// 				},
+// 				{
+// 					text: '东坑镇',
+// 					value: 'Dongkeng'
+// 				},
+// 				{
+// 					text: '常平镇',
+// 					value: 'Changping'
+// 				},
+// 				{
+// 					text: '寮步镇',
+// 					value: 'Liaobu'
+// 				},
+// 				{
+// 					text: '大朗镇',
+// 					value: 'Dalang'
+// 				},
+// 				{
+// 					text: '黄江镇',
+// 					value: 'Huangjiang'
+// 				},
+// 				{
+// 					text: '清溪镇',
+// 					value: 'Qingxi'
+// 				},
+// 				{
+// 					text: '塘厦镇',
+// 					value: 'Tangxia'
+// 				},
+// 				{
+// 					text: '凤岗镇',
+// 					value: 'Fenggang'
+// 				},
+// 				{
+// 					text: '长安镇',
+// 					value: 'Changan'
+// 				},
+// 				{
+// 					text: '虎门镇',
+// 					value: 'Humen'
+// 				},
+// 				{
+// 					text: '厚街镇',
+// 					value: 'Houjie'
+// 				},
+// 				{
+// 					text: '沙田镇',
+// 					value: 'Shatian'
+// 				},
+// 				{
+// 					text: '道滘镇',
+// 					value: 'Daojiao'
+// 				},
+// 				{
+// 					text: '洪梅镇',
+// 					value: 'Hongmei'
+// 				},
+// 				{
+// 					text: '麻涌镇',
+// 					value: 'Machong'
+// 				},
+// 				{
+// 					text: '中堂镇',
+// 					value: 'Zhongtang'
+// 				},
+// 				{
+// 					text: '高埗镇',
+// 					value: 'Gaobu'
+// 				},
+// 				{
+// 					text: '樟木头镇',
+// 					value: 'Zhangmutou'
+// 				},
+// 				{
+// 					text: '大岭山镇',
+// 					value: 'Dalingshan'
+// 				},
+// 				{
+// 					text: '望牛墩镇',
+// 					value: 'Wangniudun'
+// 				}
+// 			]
+// 		}, {
+// 			text: '中山',
+// 			value: 'Zhongshan',
+// 			children: [{
+// 					text: '石岐区',
+// 					value: 'Shiqi'
+// 				},
+// 				{
+// 					text: '南区',
+// 					value: 'Nanqu'
+// 				},
+// 				{
+// 					text: '五桂山区',
+// 					value: 'Wuguishan'
+// 				},
+// 				{
+// 					text: '火炬开发区',
+// 					value: 'Huojukaifaqu',
+// 				},
+// 				{
+// 					text: '黄圃镇',
+// 					value: 'Huangpu'
+// 				},
+// 				{
+// 					text: '东凤镇',
+// 					value: 'Dongfeng'
+// 				},
+// 				{
+// 					text: '阜沙镇',
+// 					value: 'Fusha'
+// 				},
+// 				{
+// 					text: '小榄镇',
+// 					value: 'Xiaolan'
+// 				},
+// 				{
+// 					text: '东升镇',
+// 					value: 'Dongsheng'
+// 				},
+// 				{
+// 					text: '古镇镇',
+// 					value: 'Guzhen'
+// 				},
+// 				{
+// 					text: '横栏镇',
+// 					value: 'Henglan'
+// 				},
+// 				{
+// 					text: '三角镇',
+// 					value: 'Sanjiao'
+// 				},
+// 				{
+// 					text: '民众镇',
+// 					value: 'Minzhong'
+// 				},
+// 				{
+// 					text: '南朗镇',
+// 					value: 'Nanlang'
+// 				},
+// 				{
+// 					text: '港口镇',
+// 					value: 'Gangkou'
+// 				},
+// 				{
+// 					text: '大涌镇',
+// 					value: 'Dachong'
+// 				},
+// 				{
+// 					text: '沙溪镇',
+// 					value: 'Shaxi'
+// 				},
+// 				{
+// 					text: '三乡镇',
+// 					value: 'Sanxiang'
+// 				},
+// 				{
+// 					text: '板芙镇',
+// 					value: 'Banfu'
+// 				},
+// 				{
+// 					text: '神湾镇',
+// 					value: 'Shenwan'
+// 				}
+// 			]
+// 		},
+// 		{
+// 			text: '潮州',
+// 			value: 'Chaozhou',
+// 			children: [{
+// 					text: '湘桥区',
+// 					value: 'Xiangqiao'
+// 				},
+// 				{
+// 					text: '潮安区',
+// 					value: 'Chaoan'
+// 				},
+// 				{
+// 					text: '饶平县',
+// 					value: 'Raoping'
+// 				}
+// 			]
+// 		},
+// 		{
+// 			text: '揭阳',
+// 			value: 'Jieyang',
+// 			children: [{
+// 					text: '榕城区',
+// 					value: 'Rongcheng'
+// 				},
+// 				{
+// 					text: '揭东区',
+// 					value: 'Jiedong'
+// 				},
+// 				{
+// 					text: '揭西县',
+// 					value: 'Jiexi'
+// 				},
+// 				{
+// 					text: '惠来县',
+// 					value: 'Huilai'
+// 				},
+// 				{
+// 					text: '普宁市',
+// 					value: 'Puning'
+// 				}
+// 			]
+// 		},
+// 		{
+// 			text: '云浮',
+// 			value: 'Yunfu',
+// 			children: [{
+// 					text: '云城区',
+// 					value: 'Yuncheng'
+// 				},
+// 				{
+// 					text: '云安区',
+// 					value: 'Yunan'
+// 				},
+// 				{
+// 					text: '新兴县',
+// 					value: 'Xinxing'
+// 				},
+// 				{
+// 					text: '郁南县',
+// 					value: 'Yunan'
+// 				},
+// 				{
+// 					text: '罗定市',
+// 					value: 'Luoding'
+// 				}
+// 			]
+// 		},
+
+// 	]
+// }]
+var _default = columns;
+exports.default = _default;
+
+/***/ }),
+
+/***/ 11:
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toPropertyKey = __webpack_require__(/*! ./toPropertyKey.js */ 12);
+function _defineProperty(obj, key, value) {
+  key = toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 12:
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toPropertyKey.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
+var toPrimitive = __webpack_require__(/*! ./toPrimitive.js */ 14);
+function _toPropertyKey(arg) {
+  var key = toPrimitive(arg, "string");
+  return _typeof(key) === "symbol" ? key : String(key);
+}
+module.exports = _toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 124:
+/*!******************************************!*\
+  !*** D:/code/ABDcafe-vue2/utils/util.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var formatTime = function formatTime(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+  return "".concat([year, month, day].map(formatNumber).join('-'), " ").concat([hour, minute, second].map(formatNumber).join(':'));
+};
+var formatNumber = function formatNumber(n) {
+  n = n.toString();
+  return n[1] ? n : "0".concat(n);
+};
+module.exports = {
+  formatTime: formatTime
+};
+
+/***/ }),
+
+/***/ 13:
+/*!*******************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
+}
+module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 14:
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toPrimitive.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
+function _toPrimitive(input, hint) {
+  if (_typeof(input) !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof(res) !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 15:
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/construct.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ 16);
+var isNativeReflectConstruct = __webpack_require__(/*! ./isNativeReflectConstruct.js */ 17);
+function _construct(Parent, args, Class) {
+  if (isNativeReflectConstruct()) {
+    module.exports = _construct = Reflect.construct.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
+  } else {
+    module.exports = _construct = function _construct(Parent, args, Class) {
+      var a = [null];
+      a.push.apply(a, args);
+      var Constructor = Function.bind.apply(Parent, a);
+      var instance = new Constructor();
+      if (Class) setPrototypeOf(instance, Class.prototype);
+      return instance;
+    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  }
+  return _construct.apply(null, arguments);
+}
+module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 16:
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _setPrototypeOf(o, p) {
+  module.exports = _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
+  return _setPrototypeOf(o, p);
+}
+module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 162:
+/*!******************************************!*\
+  !*** D:/code/ABDcafe-vue2/router/api.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getDrinksCategory = exports.getDrinks = exports.bookhandling = void 0;
+var _request = __webpack_require__(/*! ./request.js */ 163);
+// 获取饮品分类
+var getDrinksCategory = function getDrinksCategory() {
+  return (0, _request.request)({
+    url: "/api/product/drinks_category",
+    method: 'get'
+  });
+};
+
+// 获取饮品菜单
+exports.getDrinksCategory = getDrinksCategory;
+var getDrinks = function getDrinks() {
+  return (0, _request.request)({
+    url: "/api/product/drinks/",
+    method: 'get'
+  });
+};
+
+// 提交在线预约
+exports.getDrinks = getDrinks;
+var bookhandling = function bookhandling(name, gender, age, phone, date, time, content) {
+  return (0, _request.request)({
+    url: "/api/management/bookhandling/",
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    data: {
+      name: name,
+      gender: gender,
+      age: age,
+      phone: phone,
+      date: date,
+      time: time,
+      content: content
+    }
+  });
+};
+exports.bookhandling = bookhandling;
+
+/***/ }),
+
+/***/ 163:
+/*!**********************************************!*\
+  !*** D:/code/ABDcafe-vue2/router/request.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.request = void 0;
+var BASE_URL = 'http://127.0.0.1:8000';
+// // 通过export向外暴露一个方法，方法名叫myRequest,调用myRequest方法时会向方法中传递一个对象options
+var request = function request(options) {
+  return new Promise(function (resolve, reject) {
+    // 异步处理的封装通过promise比较好，并且要return出去，
+    uni.request({
+      // 在回调函数中处理异步请求
+      url: BASE_URL + options.url,
+      // 将接口地址分为两部分，这样如果域名改变了好维护，接口地址从options中获取
+      method: options.method || 'GET',
+      // 方法从options中获取，如果没有传入method，则默认为GET，
+      data: options.data || {},
+      // data从options中获取，如果没有传入data， 则默认一个空对象
+      headers: options.headers || {},
+      success: function success(res) {
+        // 用箭头函数，res是返回来的数据
+        // console.log(options.data);
+        if (res.statusCode == 200) {
+          // 如果请求失败，则给一个提示
+          resolve(res); //如果请求成功，调用resolve返回数据
+        } else if (res.statusCode == 401) {
+          return uni.showToast({
+            title: res.data.errmsg,
+            duration: 1500,
+            icon: "none"
+          });
+        } else if (res.statusCode == 400) {
+          console.log(res);
+          return uni.showToast({
+            title: res.data.errmsg,
+            duration: 1500,
+            icon: "none"
+          });
+        } else {
+          return uni.showToast({
+            title: '获取数据失败！',
+            duration: 1500,
+            icon: "none"
+          });
+        }
+      },
+      fail: function fail(err) {
+        // err 是返回来的错误信息
+        uni.showToast({
+          // 给一个消息提示
+          title: '请求接口失败！'
+        });
+        reject(err); // 调用reject方法把错误消息返回出去
+      }
+    });
+  });
+};
+exports.request = request;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+
+/***/ 17:
+/*!*************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/isNativeReflectConstruct.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _isNativeReflectConstruct() {
+  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+  if (Reflect.construct.sham) return false;
+  if (typeof Proxy === "function") return true;
+  try {
+    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 18:
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles.js */ 19);
+var iterableToArray = __webpack_require__(/*! ./iterableToArray.js */ 20);
+var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ 8);
+var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread.js */ 21);
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+}
+module.exports = _toConsumableArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 19:
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray.js */ 9);
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return arrayLikeToArray(arr);
+}
+module.exports = _arrayWithoutHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 2:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -779,8 +2052,8 @@ function populateParameters(result) {
     appVersion: "1.0.0",
     appVersionCode: "100",
     appLanguage: getAppLanguage(hostLanguage),
-    uniCompileVersion: "3.7.8",
-    uniRuntimeVersion: "3.7.8",
+    uniCompileVersion: "3.7.9",
+    uniRuntimeVersion: "3.7.9",
     uniPlatform: undefined || "mp-weixin",
     deviceBrand: deviceBrand,
     deviceModel: model,
@@ -1556,7 +2829,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2436,347 +3709,8 @@ exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/wx.js */ 1)["default"], __webpack_require__(/*! ./../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 3 */
-/*!***********************************!*\
-  !*** (webpack)/buildin/global.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
 
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || new Function("return this")();
-} catch (e) {
-	// This works if the window reference is available
-	if (typeof window === "object") g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 4 */
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 5 */
-/*!**************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles.js */ 6);
-var iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit.js */ 7);
-var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ 8);
-var nonIterableRest = __webpack_require__(/*! ./nonIterableRest.js */ 10);
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 6 */
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 7 */
-/*!*********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _iterableToArrayLimit(arr, i) {
-  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
-  if (null != _i) {
-    var _s,
-      _e,
-      _x,
-      _r,
-      _arr = [],
-      _n = !0,
-      _d = !1;
-    try {
-      if (_x = (_i = _i.call(arr)).next, 0 === i) {
-        if (Object(_i) !== _i) return;
-        _n = !1;
-      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
-        ;
-      }
-    } catch (err) {
-      _d = !0, _e = err;
-    } finally {
-      try {
-        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
-      } finally {
-        if (_d) throw _e;
-      }
-    }
-    return _arr;
-  }
-}
-module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 8 */
-/*!***************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray.js */ 9);
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-}
-module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 9 */
-/*!*****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-  return arr2;
-}
-module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 10 */
-/*!****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/nonIterableRest.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 11 */
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var toPropertyKey = __webpack_require__(/*! ./toPropertyKey.js */ 12);
-function _defineProperty(obj, key, value) {
-  key = toPropertyKey(key);
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
-module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 12 */
-/*!**************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/toPropertyKey.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
-var toPrimitive = __webpack_require__(/*! ./toPrimitive.js */ 14);
-function _toPropertyKey(arg) {
-  var key = toPrimitive(arg, "string");
-  return _typeof(key) === "symbol" ? key : String(key);
-}
-module.exports = _toPropertyKey, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 13 */
-/*!*******************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/typeof.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  return (module.exports = _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports), _typeof(obj);
-}
-module.exports = _typeof, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 14 */
-/*!************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/toPrimitive.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var _typeof = __webpack_require__(/*! ./typeof.js */ 13)["default"];
-function _toPrimitive(input, hint) {
-  if (_typeof(input) !== "object" || input === null) return input;
-  var prim = input[Symbol.toPrimitive];
-  if (prim !== undefined) {
-    var res = prim.call(input, hint || "default");
-    if (_typeof(res) !== "object") return res;
-    throw new TypeError("@@toPrimitive must return a primitive value.");
-  }
-  return (hint === "string" ? String : Number)(input);
-}
-module.exports = _toPrimitive, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 15 */
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/construct.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var setPrototypeOf = __webpack_require__(/*! ./setPrototypeOf.js */ 16);
-var isNativeReflectConstruct = __webpack_require__(/*! ./isNativeReflectConstruct.js */ 17);
-function _construct(Parent, args, Class) {
-  if (isNativeReflectConstruct()) {
-    module.exports = _construct = Reflect.construct.bind(), module.exports.__esModule = true, module.exports["default"] = module.exports;
-  } else {
-    module.exports = _construct = function _construct(Parent, args, Class) {
-      var a = [null];
-      a.push.apply(a, args);
-      var Constructor = Function.bind.apply(Parent, a);
-      var instance = new Constructor();
-      if (Class) setPrototypeOf(instance, Class.prototype);
-      return instance;
-    }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  }
-  return _construct.apply(null, arguments);
-}
-module.exports = _construct, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 16 */
-/*!***************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/setPrototypeOf.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _setPrototypeOf(o, p) {
-  module.exports = _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  }, module.exports.__esModule = true, module.exports["default"] = module.exports;
-  return _setPrototypeOf(o, p);
-}
-module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 17 */
-/*!*************************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/isNativeReflectConstruct.js ***!
-  \*************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _isNativeReflectConstruct() {
-  if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-  if (Reflect.construct.sham) return false;
-  if (typeof Proxy === "function") return true;
-  try {
-    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
-module.exports = _isNativeReflectConstruct, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 18 */
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles.js */ 19);
-var iterableToArray = __webpack_require__(/*! ./iterableToArray.js */ 20);
-var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ 8);
-var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread.js */ 21);
-function _toConsumableArray(arr) {
-  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
-}
-module.exports = _toConsumableArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 19 */
-/*!******************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray.js */ 9);
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return arrayLikeToArray(arr);
-}
-module.exports = _arrayWithoutHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-/* 20 */
+/***/ 20:
 /*!****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
   \****************************************************************/
@@ -2789,7 +3723,8 @@ function _iterableToArray(iter) {
 module.exports = _iterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 21 */
+
+/***/ 21:
 /*!******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
   \******************************************************************/
@@ -2802,7 +3737,8 @@ function _nonIterableSpread() {
 module.exports = _nonIterableSpread, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 22 */
+
+/***/ 22:
 /*!*************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-i18n/dist/uni-i18n.es.js ***!
   \*************************************************************/
@@ -3331,7 +4267,8 @@ function resolveLocaleChain(locale) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"], __webpack_require__(/*! ./../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 23 */
+
+/***/ 23:
 /*!***************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
   \***************************************************************/
@@ -3346,7 +4283,8 @@ function _classCallCheck(instance, Constructor) {
 module.exports = _classCallCheck, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 24 */
+
+/***/ 24:
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
   \************************************************************/
@@ -3374,7 +4312,8 @@ function _createClass(Constructor, protoProps, staticProps) {
 module.exports = _createClass, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ }),
-/* 25 */
+
+/***/ 25:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -8913,7 +9852,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8934,14 +9873,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9037,7 +9976,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -9454,9 +10393,10 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 26 */
+
+/***/ 26:
 /*!***************************************!*\
-  !*** D:/元数科技/ABDcafe-vue2/pages.json ***!
+  !*** D:/code/ABDcafe-vue2/pages.json ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -9464,12 +10404,39 @@ internalMixin(Vue);
 
 
 /***/ }),
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */
+
+/***/ 3:
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
+/***/ 32:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -9600,708 +10567,132 @@ function normalizeComponent (
 
 
 /***/ }),
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */
-/*!********************************************!*\
-  !*** D:/元数科技/ABDcafe-vue2/utils/region.js ***!
-  \********************************************/
+
+/***/ 4:
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 5:
+/*!**************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/slicedToArray.js ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+var arrayWithHoles = __webpack_require__(/*! ./arrayWithHoles.js */ 6);
+var iterableToArrayLimit = __webpack_require__(/*! ./iterableToArrayLimit.js */ 7);
+var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray.js */ 8);
+var nonIterableRest = __webpack_require__(/*! ./nonIterableRest.js */ 10);
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+}
+module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
+/***/ }),
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var columns = [{
-  text: '广东',
-  value: 'Guangdong',
-  children: [{
-    text: '广州',
-    value: 'Guangzhou',
-    children: [{
-      text: '天河区',
-      value: 'Tianhe'
-    }, {
-      text: '海珠区',
-      value: 'Haizhu'
-    }, {
-      text: '荔湾区',
-      value: 'Liwan'
-    }, {
-      text: '越秀区',
-      value: 'Yuexiu'
-    }, {
-      text: '番禺区',
-      value: 'Panyu'
-    }, {
-      text: '黄埔区',
-      value: 'Huangpu'
-    }, {
-      text: '白云区',
-      value: 'Baiyun'
-    }, {
-      text: '南沙区',
-      value: 'Nansha'
-    }, {
-      text: '从化区',
-      value: 'Conghua'
-    }, {
-      text: '增城区',
-      value: 'Zengcheng'
-    }]
-  }, {
-    text: '深圳',
-    value: 'Shenzhen',
-    children: [{
-      text: '福田区',
-      value: 'Futian'
-    }, {
-      text: '罗湖区',
-      value: 'Luohu'
-    }, {
-      text: '南山区',
-      value: 'Nanshan'
-    }, {
-      text: '宝安区',
-      value: 'Baoan'
-    }, {
-      text: '龙岗区',
-      value: 'Longgang'
-    }, {
-      text: '盐田区',
-      value: 'Yantian'
-    }, {
-      text: '龙华区',
-      value: 'Longhua'
-    }, {
-      text: '坪山区',
-      value: 'Pingshan'
-    }, {
-      text: '光明区',
-      value: 'Guangming'
-    }]
-  }, {
-    text: '珠海',
-    value: 'Zhuhai',
-    children: [{
-      text: '香洲区',
-      value: 'Xiangzhou'
-    }, {
-      text: '金湾区',
-      value: 'Jinwan'
-    }, {
-      text: '斗门区',
-      value: 'Doumen'
-    }]
-  }, {
-    text: '汕头',
-    value: 'Shantou',
-    children: [{
-      text: '金平区',
-      value: 'Jinping'
-    }, {
-      text: '龙湖区',
-      value: 'Longhu'
-    }, {
-      text: '澄海区',
-      value: 'Chenghai'
-    }, {
-      text: '潮阳区',
-      value: 'Chaoyang'
-    }, {
-      text: '潮南区',
-      value: 'Chaonan'
-    }, {
-      text: '濠江区',
-      value: 'Haojiang'
-    }, {
-      text: '南澳县',
-      value: 'Nanao'
-    }]
-  }, {
-    text: '韶关',
-    value: 'Shaoguan',
-    children: [{
-      text: '浈江区',
-      value: 'Zhenjiang'
-    }, {
-      text: '武江区',
-      value: 'Wujiang'
-    }, {
-      text: '浈江区',
-      value: 'Zhenjiang'
-    }, {
-      text: '曲江区',
-      value: 'Qujiang'
-    }, {
-      text: '始兴县',
-      value: 'Shixing'
-    }, {
-      text: '仁化县',
-      value: 'Renhua'
-    }, {
-      text: '翁源县',
-      value: 'Wengyuan'
-    }, {
-      text: '乳源瑶族自治县',
-      value: 'Ruyuan'
-    }, {
-      text: '新丰县',
-      value: 'Xinfeng'
-    }, {
-      text: '乐昌市',
-      value: 'Lechang'
-    }, {
-      text: '南雄市',
-      value: 'Nanxiong'
-    }]
-  }, {
-    text: '佛山',
-    value: 'Foshan',
-    children: [{
-      text: '禅城区',
-      value: 'Chancheng'
-    }, {
-      text: '南海区',
-      value: 'Nanhai'
-    }, {
-      text: '顺德区',
-      value: 'Shunde'
-    }, {
-      text: '三水区',
-      value: 'Sanshui'
-    }, {
-      text: '高明区',
-      value: 'Gaoming'
-    }]
-  }, {
-    text: '江门',
-    value: 'Jiangmen',
-    children: [{
-      text: '蓬江区',
-      value: 'Pengjiang'
-    }, {
-      text: '江海区',
-      value: 'Jianghai'
-    }, {
-      text: '新会区',
-      value: 'Xinhui'
-    }, {
-      text: '台山市',
-      value: 'Taishan'
-    }, {
-      text: '开平市',
-      value: 'Kaiping'
-    }, {
-      text: '鹤山市',
-      value: 'Heshan'
-    }, {
-      text: '恩平市',
-      value: 'Enping'
-    }]
-  }, {
-    text: '湛江',
-    value: 'Zhanjiang',
-    children: [{
-      text: '赤坎区',
-      value: 'Chikan'
-    }, {
-      text: '霞山区',
-      value: 'Xiashan'
-    }, {
-      text: '坡头区',
-      value: 'Potou'
-    }, {
-      text: '麻章区',
-      value: 'Mazhang'
-    }, {
-      text: '遂溪县',
-      value: 'Suixi'
-    }, {
-      text: '徐闻县',
-      value: 'Xuwen'
-    }, {
-      text: '廉江市',
-      value: 'Lianjiang'
-    }, {
-      text: '雷州市',
-      value: 'Leizhou'
-    }, {
-      text: '吴川市',
-      value: 'Wuchuan'
-    }]
-  }, {
-    text: '茂名',
-    value: 'Maoming',
-    children: [{
-      text: '茂南区',
-      value: 'Maonan'
-    }, {
-      text: '电白区',
-      value: 'Dianbai'
-    }, {
-      text: '高州市',
-      value: 'Gaozhou'
-    }, {
-      text: '化州市',
-      value: 'Huazhou'
-    }, {
-      text: '信宜市',
-      value: 'Xinyi'
-    }]
-  }, {
-    text: '肇庆',
-    value: 'Zhaoqing',
-    children: [{
-      text: '端州区',
-      value: 'Duanzhou'
-    }, {
-      text: '鼎湖区',
-      value: 'Dinghu'
-    }, {
-      text: '高要区',
-      value: 'Gaoyao'
-    }, {
-      text: '广宁县',
-      value: 'Guangning'
-    }, {
-      text: '怀集县',
-      value: 'Huaiji'
-    }, {
-      text: '封开县',
-      value: 'Fengkai'
-    }, {
-      text: '德庆县',
-      value: 'Deqing'
-    }, {
-      text: '四会市',
-      value: 'Sihui'
-    }]
-  }, {
-    text: '惠州',
-    value: 'Huizhou',
-    children: [{
-      text: '惠城区',
-      value: 'Huicheng'
-    }, {
-      text: '惠阳区',
-      value: 'Huiyang'
-    }, {
-      text: '博罗县',
-      value: 'Boluo'
-    }, {
-      text: '惠东县',
-      value: 'Huidong'
-    }, {
-      text: '龙门县',
-      value: 'Longmen'
-    }]
-  }, {
-    text: '梅州',
-    value: 'Meizhou',
-    children: [{
-      text: '梅江区',
-      value: 'Meijiang'
-    }, {
-      text: '梅县区',
-      value: 'Meixian'
-    }, {
-      text: '大埔县',
-      value: 'Dapu'
-    }, {
-      text: '丰顺县',
-      value: 'Fengshun'
-    }, {
-      text: '五华县',
-      value: 'Wuhua'
-    }, {
-      text: '平远县',
-      value: 'Pingyuan'
-    }, {
-      text: '蕉岭县',
-      value: 'Jiaoling'
-    }]
-  }, {
-    text: '汕尾',
-    value: 'Shanwei',
-    children: [{
-      text: '城区',
-      value: 'Chengqu'
-    }, {
-      text: '海丰县',
-      value: 'Haifeng'
-    }, {
-      text: '陆河县',
-      value: 'Luhe'
-    }, {
-      text: '陆丰市',
-      value: 'Lufeng'
-    }]
-  }, {
-    text: '河源',
-    value: 'Heyuan',
-    children: [{
-      text: '源城区',
-      value: 'Yuancheng'
-    }, {
-      text: '紫金县',
-      value: 'Zijin'
-    }, {
-      text: '龙川县',
-      value: 'Longchuan'
-    }, {
-      text: '连平县',
-      value: 'Lianping'
-    }, {
-      text: '和平县',
-      value: 'Heping'
-    }, {
-      text: '东源县',
-      value: 'Dongyuan'
-    }]
-  }, {
-    text: '阳江',
-    value: 'Yangjiang',
-    children: [{
-      text: '江城区',
-      value: 'Jiangcheng'
-    }, {
-      text: '阳东区',
-      value: 'Yangdong'
-    }, {
-      text: '阳西县',
-      value: 'Yangxi'
-    }, {
-      text: '阳春市',
-      value: 'Yangchun'
-    }, {
-      text: '海陵岛经济开发试验区',
-      value: 'Hailingdao'
-    }, {
-      text: '高新技术产业开发区',
-      value: 'Gaoxin'
-    }]
-  }, {
-    text: '清远',
-    value: 'Qingyuan',
-    children: [{
-      text: '清城区',
-      value: 'Qingcheng'
-    }, {
-      text: '清新区',
-      value: 'Qingxin'
-    }, {
-      text: '佛冈县',
-      value: 'Fogang'
-    }, {
-      text: '阳山县',
-      value: 'Yangshan'
-    }, {
-      text: '连山壮族瑶族自治县',
-      value: 'Lianshan'
-    }, {
-      text: '连南瑶族自治县',
-      value: 'Liannan'
-    }, {
-      text: '英德市',
-      value: 'Yingde'
-    }, {
-      text: '连州市',
-      value: 'Lianzhou'
-    }, {
-      text: '清新县',
-      value: 'QingxinXian'
-    }]
-  }, {
-    text: '东莞',
-    value: 'Dongguan',
-    children: [{
-      text: '莞城区',
-      value: 'Guancheng'
-    }, {
-      text: '南城区',
-      value: 'Nancheng'
-    }, {
-      text: '万江区',
-      value: 'Wanjiang'
-    }, {
-      text: '东城区',
-      value: 'Dongcheng'
-    }, {
-      text: '石碣镇',
-      value: 'Shijie'
-    }, {
-      text: '石龙镇',
-      value: 'Shilong'
-    }, {
-      text: '茶山镇',
-      value: 'Chashan'
-    }, {
-      text: '石排镇',
-      value: 'Shipai'
-    }, {
-      text: '企石镇',
-      value: 'Qishi'
-    }, {
-      text: '横沥镇',
-      value: 'Hengli'
-    }, {
-      text: '桥头镇',
-      value: 'Qiaotou'
-    }, {
-      text: '谢岗镇',
-      value: 'Xiegang'
-    }, {
-      text: '东坑镇',
-      value: 'Dongkeng'
-    }, {
-      text: '常平镇',
-      value: 'Changping'
-    }, {
-      text: '寮步镇',
-      value: 'Liaobu'
-    }, {
-      text: '大朗镇',
-      value: 'Dalang'
-    }, {
-      text: '黄江镇',
-      value: 'Huangjiang'
-    }, {
-      text: '清溪镇',
-      value: 'Qingxi'
-    }, {
-      text: '塘厦镇',
-      value: 'Tangxia'
-    }, {
-      text: '凤岗镇',
-      value: 'Fenggang'
-    }, {
-      text: '长安镇',
-      value: 'Changan'
-    }, {
-      text: '虎门镇',
-      value: 'Humen'
-    }, {
-      text: '厚街镇',
-      value: 'Houjie'
-    }, {
-      text: '沙田镇',
-      value: 'Shatian'
-    }, {
-      text: '道滘镇',
-      value: 'Daojiao'
-    }, {
-      text: '洪梅镇',
-      value: 'Hongmei'
-    }, {
-      text: '麻涌镇',
-      value: 'Machong'
-    }, {
-      text: '中堂镇',
-      value: 'Zhongtang'
-    }, {
-      text: '高埗镇',
-      value: 'Gaobu'
-    }, {
-      text: '樟木头镇',
-      value: 'Zhangmutou'
-    }, {
-      text: '大岭山镇',
-      value: 'Dalingshan'
-    }, {
-      text: '望牛墩镇',
-      value: 'Wangniudun'
-    }]
-  }, {
-    text: '中山',
-    value: 'Zhongshan',
-    children: [{
-      text: '石岐区',
-      value: 'Shiqi'
-    }, {
-      text: '南区',
-      value: 'Nanqu'
-    }, {
-      text: '五桂山区',
-      value: 'Wuguishan'
-    }, {
-      text: '火炬开发区',
-      value: 'Huojukaifaqu'
-    }, {
-      text: '黄圃镇',
-      value: 'Huangpu'
-    }, {
-      text: '东凤镇',
-      value: 'Dongfeng'
-    }, {
-      text: '阜沙镇',
-      value: 'Fusha'
-    }, {
-      text: '小榄镇',
-      value: 'Xiaolan'
-    }, {
-      text: '东升镇',
-      value: 'Dongsheng'
-    }, {
-      text: '古镇镇',
-      value: 'Guzhen'
-    }, {
-      text: '横栏镇',
-      value: 'Henglan'
-    }, {
-      text: '三角镇',
-      value: 'Sanjiao'
-    }, {
-      text: '民众镇',
-      value: 'Minzhong'
-    }, {
-      text: '南朗镇',
-      value: 'Nanlang'
-    }, {
-      text: '港口镇',
-      value: 'Gangkou'
-    }, {
-      text: '大涌镇',
-      value: 'Dachong'
-    }, {
-      text: '沙溪镇',
-      value: 'Shaxi'
-    }, {
-      text: '三乡镇',
-      value: 'Sanxiang'
-    }, {
-      text: '板芙镇',
-      value: 'Banfu'
-    }, {
-      text: '神湾镇',
-      value: 'Shenwan'
-    }]
-  }, {
-    text: '潮州',
-    value: 'Chaozhou',
-    children: [{
-      text: '湘桥区',
-      value: 'Xiangqiao'
-    }, {
-      text: '潮安区',
-      value: 'Chaoan'
-    }, {
-      text: '饶平县',
-      value: 'Raoping'
-    }]
-  }, {
-    text: '揭阳',
-    value: 'Jieyang',
-    children: [{
-      text: '榕城区',
-      value: 'Rongcheng'
-    }, {
-      text: '揭东区',
-      value: 'Jiedong'
-    }, {
-      text: '揭西县',
-      value: 'Jiexi'
-    }, {
-      text: '惠来县',
-      value: 'Huilai'
-    }, {
-      text: '普宁市',
-      value: 'Puning'
-    }]
-  }, {
-    text: '云浮',
-    value: 'Yunfu',
-    children: [{
-      text: '云城区',
-      value: 'Yuncheng'
-    }, {
-      text: '云安区',
-      value: 'Yunan'
-    }, {
-      text: '新兴县',
-      value: 'Xinxing'
-    }, {
-      text: '郁南县',
-      value: 'Yunan'
-    }, {
-      text: '罗定市',
-      value: 'Luoding'
-    }]
-  }]
-}];
-var _default = columns;
-exports.default = _default;
+/***/ 6:
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithHoles.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 7:
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArrayLimit.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _iterableToArrayLimit(arr, i) {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
+        ;
+      }
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 8:
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray.js */ 9);
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 9:
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+  return arr2;
+}
+module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
 
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

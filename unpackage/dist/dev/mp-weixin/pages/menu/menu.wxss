@@ -83,8 +83,12 @@
   height: 200rpx;
 }
 .product__img.data-v-368aef34 {
-  width: 160rpx;
-  height: 160rpx;
+  width: 150rpx;
+  height: 150rpx;
+}
+.product__img .img.data-v-368aef34 {
+  width: 150rpx !important;
+  height: 150rpx !important;
 }
 .product__names.data-v-368aef34 {
   flex-grow: 1;

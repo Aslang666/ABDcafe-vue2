@@ -15,15 +15,15 @@
 				<view class="card products-card">
 					<view class="card-header">
 						<text style="flex-grow: 1;">NO.213553525</text>
-						<!-- 		        <text v-if="{{item.status===1}}" bindtap="onReceiveTap" data-oid="{{item.oid}}">确认收货</text>
-		        <text v-else  style="margin-right: 24rpx;">已完成</text>
-		        <van-icon v-if="{{item.status===2}}" name="delete-o" size="40rpx" bindtap="onRemoveOrder"/> -->
+								        <!-- <text v-if="{{item.status===1}}" bindtap="onReceiveTap" data-oid="{{item.oid}}">确认收货</text> -->
+		        <text style="margin-right: 24rpx;">已完成</text>
+		        <van-icon name="delete-o" size="40rpx" @tap="(val)=>onRemoveOrder(val,item)"/>
 					</view>
-					<view v-for="item in 3" :key="item">
+					<view v-for="item in 3" :key="item">	
 						<view class="product">
 							<image class="product__img" src="../../static/abd.png" mode="widthFix" />
 							<view class="product__detail">
-								<view>生椰拿铁<text class="product__rule">0.0.0000</text></view>
+								<view>生椰拿铁<text class="product__rule">少冰/少糖</text></view>
 								<view class="product__en-name">yo</view>
 								<view class="product__price">¥23</view>
 							</view>
@@ -55,7 +55,9 @@
 			}
 		},
 		methods: {
-
+			onRemoveOrder(e,a){
+				console.log(e,a);
+			}
 		}
 	}
 </script>

@@ -91,6 +91,7 @@ page.data-v-db675620 {
   margin-top: -40px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20rpx;
   text-align: center;
   color: #595a5b;
   font-weight: 600;
@@ -98,5 +99,9 @@ page.data-v-db675620 {
 }
 .no_address .no_text text.data-v-db675620 {
   color: #0037ae;
+}
+.no_address .no_text button.data-v-db675620 {
+  color: #fff;
+  background-color: #0037ae;
 }
 

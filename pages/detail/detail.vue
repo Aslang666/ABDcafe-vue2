@@ -1,21 +1,20 @@
 <template>
 	<view>
 		<view class="header">
-			<image class="header__img" src="../../static/star.jpg" mode="widthFix" />
+			<image class="header__img" :src="baseUrl+product.main_image" mode="widthFix" />
 		</view>
 
 		<view class="detail-content">
 			<view class="detail__title">
-				<text class="detail__name">{{product}}</text>
-				<text class="detail__price">¥ 13</text>
+				<text class="detail__name">{{product.name}}</text>
+				<text class="detail__price">¥ {{product.price}}</text>
 			</view>
-			<view class="detail__en-name">{{product}}</view>
 			<view class="rules">
 				<!-- 温度选择器 -->
 				<view class="spec" v-if="product">
 					<text class="spec__name">温度</text>
 					<view class="ec-chioce">
-						<view v-for="(item,index) in ice" :key="index">
+						<view v-for="(item,index) in product.available_ice_choices" :key="index">
 							<view
 								:class="['ec-chioce-item',form.ice===item.name?'ec-chioce-item--active':'ec-chioce-item']"
 								@tap="onTapTempSpec(item)">
@@ -28,7 +27,7 @@
 				<view class="spec" v-if="product">
 					<text class="spec__name">糖度</text>
 					<view class="ec-chioce">
-						<view v-for="(item,index) in sugar" :key="index">
+						<view v-for="(item,index) in product.available_sugar_choices" :key="index">
 							<view
 								:class="['ec-chioce-item',form.sugar===item.name?'ec-chioce-item--active':'ec-chioce-item']"
 								@tap="onTapSugarSpec(item)">
@@ -72,6 +71,7 @@
 		components: {},
 		data() {
 			return {
+				baseUrl:'http://127.0.0.1:8000',
 				showsubmit: false,
 				current: 0,
 				product: {},
@@ -139,8 +139,8 @@
 
 		},
 		onLoad(options) {
-			console.log(options.productid);
-			this.product = options.productid
+			console.log(JSON.parse(options.drinkdetail));
+			this.product = JSON.parse(options.drinkdetail)
 			// this.getCoffeeDetail()
 			// this.checkIsLike()
 		}
@@ -149,8 +149,13 @@
 </script>
 
 <style lang="scss" scoped>
+	.header{
+		width: 100%;
+		height: 500rpx;
+	}
 	.header__img {
 		width: 100%;
+		height: 600rpx !important;
 	}
 
 	.detail-content {
@@ -200,21 +205,21 @@
 
 	.ec-chioce {
 		display: flex;
-		gap: 10rpx;
-		font-size: small;
+		gap: 5rpx;
+		font-size: small;		
 	}
 
 	.ec-chioce-item {
 		display: flex;
-		// padding: 8rpx 0;
-		min-width: 100rpx;
+		padding: 0 4rpx;
+		min-width: 90rpx;
 		height: 25px;
 		text-align: center;
 		background-color: #e5e5e5;
 		border-radius: 999rpx;
 		align-items: center;
 		justify-content: center;
-		font-size: small;
+		font-size: smaller;
 	}
 
 	.ec-chioce-item--active {
