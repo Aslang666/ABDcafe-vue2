@@ -18,10 +18,14 @@ export default {
 	},
 		data() {
 			return {
+				// access:uni.getStorageSync('access')
 			}
 		},
 		methods: {
 
+		},
+		mounted() {
+			console.log(uni.getStorageSync('user'));
 		}
 	}
 </script>

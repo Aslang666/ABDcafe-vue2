@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<view v-if="user">
+		<view v-if="token">
 		<image class="header-img" src="../../static/cafebg.jpg" mode="widthFix" />
 		
 		<view class="product-list">
@@ -53,7 +53,8 @@
 		data() {
 			return {
 				tocommit:true,
-				user:uni.getStorageSync('user')|0,
+				token: uni.getStorageSync('access'),
+				// cart
 				content: [{
 					id:1,
 					name: '流沙美式',

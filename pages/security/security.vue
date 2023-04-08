@@ -43,6 +43,8 @@
 		methods: {
 			onLogout() {
 				uni.removeStorageSync('user')
+				uni.removeStorageSync('access')
+				uni.removeStorageSync('refresh')
 				wx.redirectTo({
 					url: '../index/index',
 				})

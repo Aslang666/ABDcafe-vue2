@@ -31,8 +31,8 @@
 		},
 		methods: {
 			navto() {
-				uni.switchTab({
-					url: '../menu/menu'
+				uni.navigateTo({
+					url: '../ads/ads'
 				})
 			}
 		}

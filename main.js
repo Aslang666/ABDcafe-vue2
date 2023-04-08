@@ -2,8 +2,12 @@ import App from './App'
 
 // #ifndef VUE3
 import Vue from 'vue'
+import {request} from 'router/request.js'
 Vue.config.productionTip = false
 App.mpType = 'app'
+Vue.prototype.$request = request
+
+
 try {
   function isPromise(obj) {
     return (

@@ -2,39 +2,46 @@
 	<view class="container">
 		<view class="bg" />
 
-		<!-- 		<view class="tabs">
-		  <van-tabs active="{{ activeTab }}" @change="onChangeTab" title-active-color="#0037ae" color="#0037ae">
-		    <van-tab title="全部" name="all" />
-		    <van-tab title="进行中" name="ing" />
-		    <van-tab title="已完成" name="done" />
-		  </van-tabs>
-		</view> -->
+		<view class="tabs">
+			<van-tabs :active="status" @change="(val)=>onChangeTab(val)" title-active-color="#0037ae" color="#0037ae">
+				
+				<van-tab title="全部" name="all" />
+				<van-tab title="待接单" name="pending" />
+				<van-tab title="制作中" name="processing" />
+				<van-tab title="已完成" name="completed" />
+				<van-tab title="已取消" name="canceled" />
+			</van-tabs>
+		</view>
 
 		<view class="list">
-			<view v-for="item in 3" :key="item">
+			<view v-for="(list,index) in orderList" :key="index">
 				<view class="card products-card">
 					<view class="card-header">
-						<text style="flex-grow: 1;">NO.213553525</text>
-								        <!-- <text v-if="{{item.status===1}}" bindtap="onReceiveTap" data-oid="{{item.oid}}">确认收货</text> -->
-		        <text style="margin-right: 24rpx;">已完成</text>
-		        <van-icon name="delete-o" size="40rpx" @tap="(val)=>onRemoveOrder(val,item)"/>
+						<text style="flex-grow: 1;">订单号：{{list.order_id}}</text>
+						<!-- <text v-if="{{item.status===1}}" bindtap="onReceiveTap" data-oid="{{item.oid}}">确认收货</text> -->
+						<text style="margin-right: 24rpx;">{{list.status}}</text>
+						<van-icon name="delete-o" size="40rpx" @tap="(val)=>onRemoveOrder(val,list)" />
 					</view>
-					<view v-for="item in 3" :key="item">	
+					<view v-for="(item,index) in list.order_items" :key="index">
 						<view class="product">
-							<image class="product__img" src="../../static/abd.png" mode="widthFix" />
+							<image class="product__img" :src="baseUrl+item.drinks.main_image" />
 							<view class="product__detail">
-								<view>生椰拿铁<text class="product__rule">少冰/少糖</text></view>
-								<view class="product__en-name">yo</view>
-								<view class="product__price">¥23</view>
+								<view>{{item.drinks.name}}</view>
+								<view class="product__en-name">{{item.ice_choice}}/{{item.sugar_choice}}</view>
+								<view class="product__price">¥{{item.unit_price}}</view>
 							</view>
-							<view class="product__count">4</view>
+							<view class="product__price">￥{{item.total_price}}</view>
+							<view class="product__count">{{item.quantity}}</view>
 						</view>
 					</view>
 				</view>
 				<view class="card count-card">
-					<view class="date">2023年4月3日16：24</view>
+					<view class="date">
+						<!-- formatTime({{item.created_at}}) -->
+						
+					</view>
 					<view class="count-text">
-						<text class="sum">共计3 件</text>
+						<text class="sum">共计{{list.order_items.length}}件</text>
 						<text class="price-sum">合计 ¥50</text>
 					</view>
 				</view>
@@ -47,17 +54,76 @@
 </template>
 
 <script>
+	import {formatTime} from '../../utils/util.js'
+	import {
+		getorder
+	} from '../../router/api.js'
 	export default {
 		data() {
 			return {
-				activeTab: 0,
+				baseUrl: 'http://192.168.0.15:8000',
+				status: 'pending',
 				orders: [],
+				orderList: [],
+				pending: [],
+				processing: [],
+				completed: [],
+				canceled: []
 			}
 		},
 		methods: {
-			onRemoveOrder(e,a){
-				console.log(e,a);
-			}
+			onRemoveOrder(e, a) {
+				console.log(e, a);
+			},
+			getOrderList() {
+				getorder().then(res => {
+					console.log(res.data);
+					// this.orderList = res.data
+					res.data.forEach(item => {
+						this.orderList = []
+						this.pending = []
+						this.processing = []
+						this.completed = []
+						this.canceled = []
+						switch (item.status) {
+							case 'pending':
+								this.pending.push(item)
+								this.orderList = this.pending
+								break;
+							case 'processing':
+								this.processing.push(item)
+								this.orderList = this.processing
+								break;
+							case 'completed':
+								this.completed.push(item)
+								this.orderList = this.completed
+								break;
+							case 'canceled':
+								this.canceled.push(item)
+								this.orderList = this.canceled
+								break;
+							case 'all':
+								this.orderList = this.canceled
+						}
+						this.status = item.status
+					})
+					console.log(this.orderList);
+				})
+			},
+			onChangeTab(event) {
+				// const {
+				//   index
+				// } = event.detail
+				console.log(event);
+				this.getOrderList()
+				// this.getOrders(index)
+				// this.setData({activeTab: index})
+			},
+		
+		},
+		mounted() {
+			this.getOrderList(this.status)
+
 		}
 	}
 </script>
@@ -102,8 +168,8 @@
 
 	.product__img {
 		flex-shrink: 0;
-		width: 172rpx;
-		height: 172rpx;
+		width: 160rpx;
+		height: 160rpx;
 	}
 
 	.product__detail {

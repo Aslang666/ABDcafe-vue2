@@ -1,8 +1,7 @@
 <template>
 	<view class="">
-		<view class="container2" v-if="user">
+		<view class="container2" v-if="access">
 			<view class="block" @click="tomenu">
-				<!-- {{user}} -->
 				<view class="left">
 					
 				<view class="avatar">
@@ -15,7 +14,7 @@
 				</view>
 				<view class="hello">
 					<span>
-					你好呀，{{user.nickName}}!
+					你好呀，{{user.username}}!
 					</span>
 					<span>一起享受美妙的咖啡之旅吧~</span>
 				</view>
@@ -26,7 +25,7 @@
 			<view class="block">
 				<view class="left">
 					<view class="text">
-						<span>SHARE</span>{{user}}
+						<span>SHARE</span>
 						<span>TOGETHER</span>
 					</view>
 				</view>
@@ -39,16 +38,16 @@
 </template>
 
 <script>
-// import { onMounted } from "vue";
 export default{
-	// name: "personalinfo",
 	data(){
 	return{
+		access: uni.getStorageSync('access'),
 		user : uni.getStorageSync('user')
 	}},
+
 	methods:{
 		navto(){
-			uni.navigateTo({
+			uni.reLaunch({
 				url: '../login/login',
 				animationType: 'pop-in',
 				animationDuration: 200
@@ -57,11 +56,9 @@ export default{
 		tomenu(){
 			uni.switchTab({
 				url: '../personal/personal'
-
 			})
 		},
 		mounted(){
-			console.log(this.user)
 		}
 		
 	}

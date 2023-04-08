@@ -81,8 +81,15 @@
                 "navigationBarTitleText": "订单结算",
                 "enablePullDownRefresh": false
             }
-            
         }
+		,{
+		    "path" : "pages/ads/ads",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "广告",
+		        "enablePullDownRefresh": false
+		    }
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -107,7 +114,10 @@
 			"van-tag":"wxcomponents/@vant/weapp/tag/index",
 			"van-checkbox":"wxcomponents/@vant/weapp/checkbox/index",	
 			"van-cascader":"wxcomponents/@vant/weapp/cascader/index",			
-			"van-switch":"wxcomponents/@vant/weapp/switch/index"			
+			"van-switch":"wxcomponents/@vant/weapp/switch/index",		
+			"van-tab":"wxcomponents/@vant/weapp/tab/index",
+			"van-tabs":"wxcomponents/@vant/weapp/tabs/index"
+
 		}
 	},
 	"tabBar": {

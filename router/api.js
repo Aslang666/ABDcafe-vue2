@@ -1,25 +1,40 @@
 import {request} from './request.js'
 
-// 获取饮品分类
-export const getDrinksCategory = () => request({
-  url: `/api/product/drinks_category`,
+// 登录
+export const wxlogin = (code) => request({
+  url: `/api/accounts/login/`,
+  method: 'post',
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  },
+  data:{
+  	  code
+  }
+})
+
+// 用户信息
+export const getinfo = () => request({
+  url: `/api/accounts/info/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
+  method: 'get',
+})
+
+//订单
+export const getorder = () => request({
+  url: `/api/order/order_list/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
   method: 'get',
 })
 
 // 获取饮品菜单
 export const getDrinks = () => request({
   url: `/api/product/drinks/`,
-  method: 'get',
-})
-
-// 提交在线预约
-export const bookhandling = (name,gender,age,phone,date,time,content) => request({
-  url: `/api/management/bookhandling/`,
-  method: 'post',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
   },
-  data:{
-	  name,gender,age,phone,date,time,content
-  }
+  method: 'get',
 })

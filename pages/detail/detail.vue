@@ -1,7 +1,17 @@
 <template>
 	<view>
 		<view class="header">
-			<image class="header__img" :src="baseUrl+product.main_image" mode="widthFix" />
+			<!-- <image class="header__img" :src="baseUrl+product.main_image" mode="widthFix" /> -->
+			<view class="uni-margin-wrap">
+				<swiper class="swiper" circular indicator-dots="indicatorDots" autoplay="autoplay"
+					interval="interval" duration="duration">
+					<swiper-item v-for="(banner,index) in product.detail_images" :key="index"  >
+						<view class="swiper-item uni-bg-red" @click="navto">
+								<image class="header__img" :src="baseUrl+banner.image" @click="navto" mode=""></image>
+						</view>
+					</swiper-item>
+				</swiper>
+			</view>
 		</view>
 
 		<view class="detail-content">
@@ -58,9 +68,9 @@
 			<van-goods-action-button text="立即购买" color="#0037ae" />
 		</van-goods-action>
 		<van-toast id="van-toast" />
-<!-- 		<van-submit-bar price="3050" button-text="提交订单" @submit="onClickButton" v-show="showsubmit">
+		<van-submit-bar price="3050" button-text="提交订单" @submit="onClickButton" v-show="showsubmit">
 			<van-tag type="primary">全选</van-tag>
-		</van-submit-bar> -->
+		</van-submit-bar>
 	</view>
 	</view>
 </template>
@@ -71,7 +81,7 @@
 		components: {},
 		data() {
 			return {
-				baseUrl:'http://127.0.0.1:8000',
+				baseUrl:'http://192.168.0.15:8000',
 				showsubmit: false,
 				current: 0,
 				product: {},
@@ -117,12 +127,16 @@
 				this.showsubmit = true
 			},
 			addcart() {
+				
 				uni.navigateBack({
 					url: '../menu/menu'
 				})
 			},
 			onClickButton() {
 				console.log('提交订单');
+				uni.navigateTo({
+					url:'/pages/commit/commit'
+				})
 			},
 			onTapSugarSpec(e) {
 				console.log(e);
@@ -151,16 +165,28 @@
 <style lang="scss" scoped>
 	.header{
 		width: 100%;
-		height: 500rpx;
+		height: 500rpx !important;
 	}
 	.header__img {
 		width: 100%;
 		height: 600rpx !important;
 	}
-
+	.swiper {
+		height: 500px;
+		// overflow:hidden; 
+	}
+	.swiper-item {
+		height: 100%;
+		width: 100%;
+		text-align: center;
+		image{
+			width: 100%;
+			height: 100%;
+		}
+	}
 	.detail-content {
 		position: relative;
-		margin: -64rpx 24rpx 0;
+		margin: -44rpx 24rpx 0;
 		padding: 48rpx 32rpx;
 		color: #595a5b;
 		background-color: #fff;

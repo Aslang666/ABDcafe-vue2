@@ -58,7 +58,7 @@ module.exports = _nonIterableRest, module.exports.__esModule = true, module.expo
 
 /***/ }),
 
-/***/ 101:
+/***/ 103:
 /*!********************************************!*\
   !*** D:/code/ABDcafe-vue2/utils/region.js ***!
   \********************************************/
@@ -1020,7 +1020,7 @@ module.exports = _toPropertyKey, module.exports.__esModule = true, module.export
 
 /***/ }),
 
-/***/ 124:
+/***/ 126:
 /*!******************************************!*\
   !*** D:/code/ABDcafe-vue2/utils/util.js ***!
   \******************************************/
@@ -1131,133 +1131,6 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 module.exports = _setPrototypeOf, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 162:
-/*!******************************************!*\
-  !*** D:/code/ABDcafe-vue2/router/api.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getDrinksCategory = exports.getDrinks = exports.bookhandling = void 0;
-var _request = __webpack_require__(/*! ./request.js */ 163);
-// 获取饮品分类
-var getDrinksCategory = function getDrinksCategory() {
-  return (0, _request.request)({
-    url: "/api/product/drinks_category",
-    method: 'get'
-  });
-};
-
-// 获取饮品菜单
-exports.getDrinksCategory = getDrinksCategory;
-var getDrinks = function getDrinks() {
-  return (0, _request.request)({
-    url: "/api/product/drinks/",
-    method: 'get'
-  });
-};
-
-// 提交在线预约
-exports.getDrinks = getDrinks;
-var bookhandling = function bookhandling(name, gender, age, phone, date, time, content) {
-  return (0, _request.request)({
-    url: "/api/management/bookhandling/",
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    data: {
-      name: name,
-      gender: gender,
-      age: age,
-      phone: phone,
-      date: date,
-      time: time,
-      content: content
-    }
-  });
-};
-exports.bookhandling = bookhandling;
-
-/***/ }),
-
-/***/ 163:
-/*!**********************************************!*\
-  !*** D:/code/ABDcafe-vue2/router/request.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.request = void 0;
-var BASE_URL = 'http://127.0.0.1:8000';
-// // 通过export向外暴露一个方法，方法名叫myRequest,调用myRequest方法时会向方法中传递一个对象options
-var request = function request(options) {
-  return new Promise(function (resolve, reject) {
-    // 异步处理的封装通过promise比较好，并且要return出去，
-    uni.request({
-      // 在回调函数中处理异步请求
-      url: BASE_URL + options.url,
-      // 将接口地址分为两部分，这样如果域名改变了好维护，接口地址从options中获取
-      method: options.method || 'GET',
-      // 方法从options中获取，如果没有传入method，则默认为GET，
-      data: options.data || {},
-      // data从options中获取，如果没有传入data， 则默认一个空对象
-      headers: options.headers || {},
-      success: function success(res) {
-        // 用箭头函数，res是返回来的数据
-        // console.log(options.data);
-        if (res.statusCode == 200) {
-          // 如果请求失败，则给一个提示
-          resolve(res); //如果请求成功，调用resolve返回数据
-        } else if (res.statusCode == 401) {
-          return uni.showToast({
-            title: res.data.errmsg,
-            duration: 1500,
-            icon: "none"
-          });
-        } else if (res.statusCode == 400) {
-          console.log(res);
-          return uni.showToast({
-            title: res.data.errmsg,
-            duration: 1500,
-            icon: "none"
-          });
-        } else {
-          return uni.showToast({
-            title: '获取数据失败！',
-            duration: 1500,
-            icon: "none"
-          });
-        }
-      },
-      fail: function fail(err) {
-        // err 是返回来的错误信息
-        uni.showToast({
-          // 给一个消息提示
-          title: '请求接口失败！'
-        });
-        reject(err); // 调用reject方法把错误消息返回出去
-      }
-    });
-  });
-};
-exports.request = request;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 
@@ -2829,7 +2702,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -9852,7 +9725,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9873,14 +9746,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9976,7 +9849,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_DARK_MODE":"false","VUE_APP_NAME":"ABDcafe（vue2)","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10581,6 +10454,171 @@ function _interopRequireDefault(obj) {
   };
 }
 module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 47:
+/*!******************************************!*\
+  !*** D:/code/ABDcafe-vue2/router/api.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.wxlogin = exports.getorder = exports.getinfo = exports.getDrinks = void 0;
+var _request = __webpack_require__(/*! ./request.js */ 48);
+// 登录
+var wxlogin = function wxlogin(code) {
+  return (0, _request.request)({
+    url: "/api/accounts/login/",
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    data: {
+      code: code
+    }
+  });
+};
+
+// 用户信息
+exports.wxlogin = wxlogin;
+var getinfo = function getinfo() {
+  return (0, _request.request)({
+    url: "/api/accounts/info/",
+    headers: {
+      "Authorization": 'Bearer ' + uni.getStorageSync('access')
+    },
+    method: 'get'
+  });
+};
+
+//订单
+exports.getinfo = getinfo;
+var getorder = function getorder() {
+  return (0, _request.request)({
+    url: "/api/order/order_list/",
+    headers: {
+      "Authorization": 'Bearer ' + uni.getStorageSync('access')
+    },
+    method: 'get'
+  });
+};
+
+// 获取饮品菜单
+exports.getorder = getorder;
+var getDrinks = function getDrinks() {
+  return (0, _request.request)({
+    url: "/api/product/drinks/",
+    headers: {
+      "Authorization": 'Bearer ' + uni.getStorageSync('access')
+    },
+    method: 'get'
+  });
+};
+exports.getDrinks = getDrinks;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
+
+/***/ }),
+
+/***/ 48:
+/*!**********************************************!*\
+  !*** D:/code/ABDcafe-vue2/router/request.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.request = void 0;
+// const BASE_URL = 'http://127.0.0.1:8000'
+var BASE_URL = 'http://192.168.0.15:8000';
+var refresh = uni.getStorageSync('refresh');
+// // 通过export向外暴露一个方法，方法名叫myRequest,调用myRequest方法时会向方法中传递一个对象options
+var request = function request(options) {
+  return new Promise(function (resolve, reject) {
+    // 异步处理的封装通过promise比较好，并且要return出去，
+    uni.request({
+      // 在回调函数中处理异步请求
+      url: BASE_URL + options.url,
+      // 将接口地址分为两部分，这样如果域名改变了好维护，接口地址从options中获取
+      method: options.method || 'GET',
+      // 方法从options中获取，如果没有传入method，则默认为GET，
+      data: options.data || {},
+      // data从options中获取，如果没有传入data， 则默认一个空对象
+      header: options.headers || {},
+      success: function success(res) {
+        // 用箭头函数，res是返回来的数据
+        // console.log(options.data);
+        if (res.statusCode == 200) {
+          // 如果请求失败，则给一个提示
+          resolve(res); //如果请求成功，调用resolve返回数据
+        } else if (res.statusCode == 401) {
+          if (res.data.extra.token_message == "Token is invalid or expired") {
+            uni.request({
+              url: BASE_URL + '/api/accounts/token/',
+              method: 'POST',
+              data: {
+                refresh: refresh
+              },
+              success: function success(res) {
+                console.log(res);
+                uni.setStorageSync('access', res.data.access);
+                console.log(uni.getStorageSync('access'));
+              }
+            });
+          }
+          return uni.showModal({
+            title: '提示',
+            content: '数据貌似发生了变化，请重新刷新页面~',
+            success: function success(res) {
+              if (res.confirm) {
+                console.log('确定');
+                uni.switchTab({
+                  url: '/pages/index/index'
+                });
+              } else if (res.cancel) {
+                console.log('用户点击取消');
+              }
+            }
+          });
+        } else if (res.statusCode == 400) {
+          console.log(res);
+          return uni.showToast({
+            title: res.data.message,
+            duration: 1500,
+            icon: "none"
+          });
+        } else {
+          return uni.showToast({
+            title: '获取数据失败！',
+            duration: 1500,
+            icon: "none"
+          });
+        }
+      },
+      fail: function fail(err) {
+        // err 是返回来的错误信息
+        uni.showToast({
+          // 给一个消息提示
+          title: '请求接口失败！'
+        });
+        reject(err); // 调用reject方法把错误消息返回出去
+      }
+    });
+  });
+};
+exports.request = request;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

@@ -8,7 +8,6 @@
 			<span>ABDcafé</span>
 			会员权益
 		</span>
-		<!-- <view class=""> -->
 		<view class="block">
 			<view class="left">
 				<view class="text">
@@ -28,39 +27,57 @@
 				<button class="login_btn" @click="login">微信一键登录</button>
 			</view>
 		</view>
-		<!-- </view> -->
 	</view>
 </template>
 
 <script>
+	import {
+		wxlogin,
+		getinfo
+	} from '../../router/api.js'
 	export default {
 		methods: {
 
 			login() {
-				// uni.login({
-				// 	provider: 'weixin',
-				// 	success: function(loginRes) {
-				// 		console.log(loginRes);
-				// 		let code = loginRes.code
-					
-				// 	}
-				// }),
-				// 获取用户信息
-				uni.getUserProfile({
-					desc: '登录后可同步数据',
-					lang: 'zh_CN',
-					success: (res) => {
-						console.log('getUserProfile', res);
-				
-						// uni.setStorageSync('token', code)
-						uni.setStorageSync('user', res.userInfo)
-						if (uni.getStorageSync('user')) {
-							uni.reLaunch({
-								url: '../index/index',
+				uni.login({
+						provider: 'weixin',
+						success: function(loginRes) {
+							console.log(loginRes);
+							let code = loginRes.code
+							wxlogin(code).then((res) => {
+								console.log(res); //这里的取到的res就是openid
+								uni.setStorageSync('access', res.data.access)
+								uni.setStorageSync('refresh', res.data.refresh)
+								getinfo().then(e => {
+									// console.log("用户个人信息" + JSON.stringify(e));
+									console.log(e);
+									uni.setStorageSync('user', e.data)
+									uni.redirectTo({
+										url: '../index/index',
+									})
+								})
 							})
 						}
-					},
-				});
+					})
+					// 获取用户信息	
+					// uni.getUserProfile({
+					// 	desc: '登录后可同步数据',
+					// 	lang: 'zh_CN',
+					// 	success: (res) => {
+					// 		console.log('getUserProfile', res);
+					// 		// getinfo().then(res => {
+					// 		// 	console.log("用户个人信息" + res);
+					// 		// })
+					// 		// uni.setStorageSync('token', code)
+					// 		uni.setStorageSync('user', res.userInfo)
+					// 		console.log(typeof uni.getStorageSync('access'));
+					// 		if (typeof uni.getStorageSync('access') == 'string') {
+					// 			uni.redirectTo({
+					// 				url: '../index/index',
+					// 			})
+					// 		}
+					// 	},
+					// });
 
 			}
 		}

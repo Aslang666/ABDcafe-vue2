@@ -26,15 +26,27 @@
 /* 文章场景相关 */
 .header.data-v-3e159eb4 {
   width: 100%;
-  height: 500rpx;
+  height: 500rpx !important;
 }
 .header__img.data-v-3e159eb4 {
   width: 100%;
   height: 600rpx !important;
 }
+.swiper.data-v-3e159eb4 {
+  height: 500px;
+}
+.swiper-item.data-v-3e159eb4 {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.swiper-item image.data-v-3e159eb4 {
+  width: 100%;
+  height: 100%;
+}
 .detail-content.data-v-3e159eb4 {
   position: relative;
-  margin: -64rpx 24rpx 0;
+  margin: -44rpx 24rpx 0;
   padding: 48rpx 32rpx;
   color: #595a5b;
   background-color: #fff;

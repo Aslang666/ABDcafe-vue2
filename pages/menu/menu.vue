@@ -2,27 +2,25 @@
 	<view class="container">
 		<view class="sidebar">
 			<scroll-view class="sidebar-content" scroll-y="true" @catchtouchmove="stopPropagation">
-				<view v-for="(item, index) in categories" :key="index" class="sidebar-item"
+				<view v-for="(item, index) in menuList" :key="index" class="sidebar-item"
 					:class="{active: activeIndex === index}" @click="switchTab(index)">
 					{{ item.name }}
 				</view>
 			</scroll-view>
 		</view>
 		<view class="main">
-			<scroll-view class="main-content" scroll-y="true"
-				:scroll-top="scrollTop" @catchtouchmove="stopPropagation" @scrolltolower="scrollToLower"
-				@scrolltoupper="scrollToUpper" scroll-with-animation="true">
-				<view v-for="(item, index) in categories" :key="index" class="tab-item"
+			<scroll-view class="main-content" scroll-y="true" :scroll-top="scrollTop" @catchtouchmove="stopPropagation"
+				@scrolltolower="scrollToLower" @scrolltoupper="scrollToUpper" scroll-with-animation="true">
+				<view v-for="(item, index) in menuList" :key="index" class="tab-item"
 					:class="{active: activeIndex === index}">
 					<view class="product-list">
 						<view class="banner">
 							<span>{{item.name}}</span>
 							<image src="../../static/cafebg.jpg" mode=""></image>
 						</view>
-						<view v-for="(list,index) in drinks" :key="index">
-							<view class="product"  @click="(val)=>tapToDetail(val,list)">
+						<view v-for="(list,index) in item.drinks" :key="index">
+							<view class="product" @click="(val)=>tapToDetail(val,list)">
 								<view class="product__img">
-
 									<image class="img" :src="baseUrl+list.main_image" mode="widthFix" />
 								</view>
 								<view class="product__names">
@@ -40,115 +38,49 @@
 </template>
 
 <script>
-	import {getDrinks,getDrinksCategory} from '../../router/api.js';
+	import {
+		getDrinks,
+		getDrinksCategory
+	} from '../../router/api.js';
 	export default {
 		data() {
 			return {
-				baseUrl:'http://127.0.0.1:8000/',
-				drinks:[],
-				categories:[],
-				menuList: [{
-						title: '经典咖啡',
-						content: [{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-							image:''
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},]
-					},
-					{
-							title: '奶茶系列',
-							content: [{
-								name: '流沙美式',
-								desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-								price: '11.5',
-							}, {
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						},]
-						},{
-						title: '果茶系列',
-						content: [{
-							name: '流沙美式',
-							desc: '深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味',
-							price: '11.5',
-						}, {
-							name: '美式',
-							desc: 'IIAC',
-							price: '11.5',
-						}, {
-							name: '美式',
-							desc: 'IIAC',
-							price: '11.5',
-						}, {
-							name: '美式',
-							desc: 'IIAC',
-							price: '11.5',
-						}, {
-							name: '美式',
-							desc: 'IIAC',
-							price: '11.5',
-						}, {
-							name: '美式',
-							desc: 'IIAC',
-							price: '11.5',
-						}]
-					},
-				],
+				baseUrl: 'http://192.168.0.15:8000',
+				drinks: [],
+				categories: [],
+				menuList: [],
 				activeIndex: 0,
 				scrollTop: 0,
-				contentHeight: 0
+				contentHeight: 0,
+				access: uni.getStorageSync('access')
 			}
 		},
+		// watch:{
+		// 	access:{
+		// 		handler(newName, oldName){
+		// 			this.getDrinkList()
+		// 			console.log(newName);
+		// 			setTimeout(() => {
+		// 				this.$router.go(0)
+		// 			}, 500)
+		// 		},
+		// 		immediate: true
+		// 	}
+		// },
 		mounted() {
-			getDrinksCategory().then(res=>{
-				this.categories = res.data
-				console.log(this.categories);
-			}),
-			getDrinks().then(res=>{
-				console.log(res);
-				this.drinks = res.data
-				console.log(this.drinks);
-			})
+			// getDrinks(this.access).then(res => {
+			// 	this.menuList = res.data
+			// 	console.log(this.menuList);
+			// })
+			this.getDrinkList()
 		},
 		methods: {
+			getDrinkList(){
+				getDrinks().then(res => {
+					this.menuList = res.data
+					console.log(this.menuList);
+				})
+			},
 			switchTab(index) {
 				this.activeIndex = index
 			},
@@ -161,21 +93,22 @@
 					setTimeout(
 						function() {
 							this.activeIndex = currentIndex + 1
-							}, 500);
-					// this.activeIndex = currentIndex + 1
+						}, 500);
 				}
 			},
 			scrollToUpper() {
 				const currentIndex = this.activeIndex
 				if (currentIndex > 0) {
-					setTimeout(function() {this.activeIndex = currentIndex - 1}, 500);
-					
+					setTimeout(function() {
+						this.activeIndex = currentIndex - 1
+					}, 500);
+
 				}
 			},
-			tapToDetail(e,a){
-				console.log(e,a);
+			tapToDetail(e, a) {
+				console.log(e, a);
 				uni.navigateTo({
-					url:'/pages/detail/detail?drinkdetail='+JSON.stringify(a)
+					url: '/pages/detail/detail?drinkdetail=' + JSON.stringify(a)
 				})
 			}
 		},
@@ -262,7 +195,8 @@
 	.product__img {
 		width: 150rpx;
 		height: 150rpx;
-		.img{
+
+		.img {
 			width: 150rpx !important;
 			height: 150rpx !important;
 		}

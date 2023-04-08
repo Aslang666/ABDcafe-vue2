@@ -11,7 +11,8 @@
     "pages/editaddr/editaddr",
     "pages/detail/detail",
     "pages/cart/cart",
-    "pages/commit/commit"
+    "pages/commit/commit",
+    "pages/ads/ads"
   ],
   "subPackages": [],
   "window": {
@@ -67,6 +68,8 @@
     "van-tag": "wxcomponents/@vant/weapp/tag/index",
     "van-checkbox": "wxcomponents/@vant/weapp/checkbox/index",
     "van-cascader": "wxcomponents/@vant/weapp/cascader/index",
-    "van-switch": "wxcomponents/@vant/weapp/switch/index"
+    "van-switch": "wxcomponents/@vant/weapp/switch/index",
+    "van-tab": "wxcomponents/@vant/weapp/tab/index",
+    "van-tabs": "wxcomponents/@vant/weapp/tabs/index"
   }
 }

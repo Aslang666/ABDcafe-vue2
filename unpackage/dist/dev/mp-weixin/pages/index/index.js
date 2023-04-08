@@ -135,7 +135,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -143,17 +143,17 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var banner = function banner() {
   __webpack_require__.e(/*! require.ensure | components/home/banner */ "components/home/banner").then((function () {
-    return resolve(__webpack_require__(/*! ../../components/home/banner.vue */ 127));
+    return resolve(__webpack_require__(/*! ../../components/home/banner.vue */ 135));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var ways = function ways() {
   __webpack_require__.e(/*! require.ensure | components/home/ways */ "components/home/ways").then((function () {
-    return resolve(__webpack_require__(/*! ../../components/home/ways.vue */ 134));
+    return resolve(__webpack_require__(/*! ../../components/home/ways.vue */ 142));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var personalinfo = function personalinfo() {
   __webpack_require__.e(/*! require.ensure | components/home/personalinfo */ "components/home/personalinfo").then((function () {
-    return resolve(__webpack_require__(/*! ../../components/home/personalinfo.vue */ 141));
+    return resolve(__webpack_require__(/*! ../../components/home/personalinfo.vue */ 149));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {
@@ -163,11 +163,17 @@ var _default = {
     personalinfo: personalinfo
   },
   data: function data() {
-    return {};
+    return {
+      // access:uni.getStorageSync('access')
+    };
   },
-  methods: {}
+  methods: {},
+  mounted: function mounted() {
+    console.log(uni.getStorageSync('user'));
+  }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

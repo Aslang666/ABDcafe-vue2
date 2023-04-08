@@ -57,8 +57,8 @@
 }
 .product__img.data-v-127632e4 {
   flex-shrink: 0;
-  width: 172rpx;
-  height: 172rpx;
+  width: 160rpx;
+  height: 160rpx;
 }
 .product__detail.data-v-127632e4 {
   flex-grow: 1;
