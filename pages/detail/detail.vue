@@ -3,11 +3,11 @@
 		<view class="header">
 			<!-- <image class="header__img" :src="baseUrl+product.main_image" mode="widthFix" /> -->
 			<view class="uni-margin-wrap">
-				<swiper class="swiper" circular indicator-dots="indicatorDots" autoplay="autoplay"
-					interval="interval" duration="duration">
-					<swiper-item v-for="(banner,index) in product.detail_images" :key="index"  >
-						<view class="swiper-item uni-bg-red" @click="navto">
-								<image class="header__img" :src="baseUrl+banner.image" @click="navto" mode=""></image>
+				<swiper class="swiper" circular indicator-dots="indicatorDots" autoplay="autoplay" interval="interval"
+					duration="duration">
+					<swiper-item v-for="(banner,index) in product.detail_images" :key="index">
+						<view class="swiper-item uni-bg-red">
+							<image class="header__img" :src="BASE_URL+banner.image" @click="navto" mode=""></image>
 						</view>
 					</swiper-item>
 				</swiper>
@@ -26,7 +26,7 @@
 					<view class="ec-chioce">
 						<view v-for="(item,index) in product.available_ice_choices" :key="index">
 							<view
-								:class="['ec-chioce-item',form.ice===item.name?'ec-chioce-item--active':'ec-chioce-item']"
+								:class="['ec-chioce-item',form.ice_choice===item.name?'ec-chioce-item--active':'ec-chioce-item']"
 								@tap="onTapTempSpec(item)">
 								{{item.name}}
 							</view>
@@ -39,7 +39,7 @@
 					<view class="ec-chioce">
 						<view v-for="(item,index) in product.available_sugar_choices" :key="index">
 							<view
-								:class="['ec-chioce-item',form.sugar===item.name?'ec-chioce-item--active':'ec-chioce-item']"
+								:class="['ec-chioce-item',form.sugar_choice===item.name?'ec-chioce-item--active':'ec-chioce-item']"
 								@tap="onTapSugarSpec(item)">
 								{{item.name}}
 							</view>
@@ -50,103 +50,107 @@
 				<view class="num-wrapper">
 					<text>选择数量</text>
 					<van-stepper class="num-stepper" minus-class="num-stepper__minus" plus-class="num-stepper__plus"
-						theme="round" button-size="40rpx" :value="form.count" @change="onNumChange" />
+						theme="round" button-size="40rpx" :value="form.quantity" @change="onNumChange" />
 				</view>
 				<view class="desc">
 					<view class="desc__title">
 						商品描述
 					</view>
 					<view class="desc__content">
-						深度烘焙带来榛果，可可的香浓风味,深感焦糖，黑巧的回味
+						{{product.description}}
 					</view>
 				</view>
 			</view>
 		</view>
 		<van-goods-action>
 			<van-goods-action-icon icon="cart-o" text="购物车" @click="opensubmit" />
-			<van-goods-action-button text="加入购物车" color="#568ae6" type="warning" @click="addcart" />
+			<van-goods-action-button text="加入购物车" color="#568ae6" type="warning" @click="addcart(form)" />
 			<van-goods-action-button text="立即购买" color="#0037ae" />
 		</van-goods-action>
 		<van-toast id="van-toast" />
-		<van-submit-bar price="3050" button-text="提交订单" @submit="onClickButton" v-show="showsubmit">
+		<!-- 		<van-submit-bar price="3050" button-text="提交订单" @submit="onClickButton" v-show="showsubmit">
 			<van-tag type="primary">全选</van-tag>
-		</van-submit-bar>
+		</van-submit-bar> -->
 	</view>
 	</view>
 </template>
 
 <script>
+	import {
+		BASE_URL
+	} from '../../router/request.js'
+	import {
+		addCart
+	} from '../../router/api.js'
 	export default {
 		name: 'detail',
 		components: {},
 		data() {
 			return {
-				baseUrl:'http://192.168.0.15:8000',
+				BASE_URL: BASE_URL,
 				showsubmit: false,
 				current: 0,
 				product: {},
 				detail: '',
 				isLike: false,
 				form: {
-					ice: '',
-					sugar: '',
-					count: 1
+					drinks: {
+						id: '',
+						name: '',
+						main_image: '',
+						price: 0,
+						status: ''
+					},
+					ice_choice: '',
+					sugar_choice: '',
+					quantity: 1,
+					unit_price: 0
 				},
-				ice: [{
-					name: '加冰',
-				}, {
-					name: '正常冰',
-				}, {
-					name: '少冰',
-				}, {
-					name: '去冰'
-				}],
-				sugar: [{
-					id: 0,
-					name: '多糖',
-				}, {
-					id: 1,
-					name: '正常糖'
-				}, {
-					id: 2,
-					name: '半糖'
-				}, {
-					id: 3,
-					name: '无糖'
-				}],
-
+				cartitem:[]
 			}
 		},
 		methods: {
+			// addToCart(e) {
+			// 	addCart(e).then(res => {
+			// 		console.log(res)
+			// 	})
+			// },
 			onNumChange(e) {
 				console.log(e);
-				this.form.count = e.detail
+				this.form.quantity = e.detail
 				console.log(this.form);
 			},
 			opensubmit() {
-				this.showsubmit = true
-			},
-			addcart() {
-				
-				uni.navigateBack({
-					url: '../menu/menu'
+				uni.switchTab({
+					url: '/pages//cart/cart'
 				})
+			},
+			addcart(e) {
+				console.log(e);
+				this.cartitem.push( e)
+				addCart(this.cartitem).then(res=>{
+					console.log(res)
+				})
+				// this.addToCart(this.form)
+				// uni.navigateBack({
+				// 	url: '../menu/menu'
+				// })
 			},
 			onClickButton() {
 				console.log('提交订单');
 				uni.navigateTo({
-					url:'/pages/commit/commit'
+					url: '/pages/commit/commit'
 				})
 			},
 			onTapSugarSpec(e) {
 				console.log(e);
 				// const value = e.currentTarget.dataset.value;
-				this.form.sugar = e.name
+				this.form.sugar_choice = e.name
 			},
 			onTapTempSpec(e) {
 				console.log(e);
 				// const value = e.currentTarget.dataset.value;
-				this.form.ice = e.name
+				this.form.ice_choice = e.name
 			},
 		},
 		mounted() {
@@ -155,35 +159,47 @@
 		onLoad(options) {
 			console.log(JSON.parse(options.drinkdetail));
 			this.product = JSON.parse(options.drinkdetail)
+			this.form.drinks.id = this.product.id
+			this.form.drinks.name = this.product.name
+			this.form.drinks.main_image = this.product.main_image
+			this.form.drinks.price = this.product.price
+			this.form.unit_price = this.product.price
+			this.form.drinks.status = this.product.status
 			// this.getCoffeeDetail()
 			// this.checkIsLike()
+			console.log(this.form);
 		}
 
 	}
 </script>
 
 <style lang="scss" scoped>
-	.header{
+	.header {
 		width: 100%;
 		height: 500rpx !important;
 	}
+
 	.header__img {
 		width: 100%;
 		height: 600rpx !important;
 	}
+
 	.swiper {
 		height: 500px;
 		// overflow:hidden; 
 	}
+
 	.swiper-item {
 		height: 100%;
 		width: 100%;
 		text-align: center;
-		image{
+
+		image {
 			width: 100%;
 			height: 100%;
 		}
 	}
+
 	.detail-content {
 		position: relative;
 		margin: -44rpx 24rpx 0;
@@ -232,7 +248,7 @@
 	.ec-chioce {
 		display: flex;
 		gap: 5rpx;
-		font-size: small;		
+		font-size: small;
 	}
 
 	.ec-chioce-item {

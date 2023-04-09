@@ -49,12 +49,12 @@
 </template>
 
 <script>
+	import {getCart} from '../../router/api.js'
 	export default {
 		data() {
 			return {
 				tocommit:true,
 				token: uni.getStorageSync('access'),
-				// cart
 				content: [{
 					id:1,
 					name: '流沙美式',
@@ -137,7 +137,13 @@
 					}
 			}
 		},
+		mounted() {
+			getCart().then(res=>{
+				console.log(res)
+			})
+		},
 		methods: {
+
 			onCheckBoxChange(e,a){
 				console.log("onCheckBoxChange",e,a);
 				this.priceSum = 0

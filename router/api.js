@@ -38,3 +38,60 @@ export const getDrinks = () => request({
   },
   method: 'get',
 })
+
+// 获取购物车
+export const getCart = () => request({
+  url: `/api/cart/cart/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
+  method: 'get',
+})
+
+// 添加到购物车
+export const addCart = (cart_items) => request({
+  url: `/api/cart/cart/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
+  method: 'put',
+  data:{
+	  cart_items
+	}
+})
+
+// 修改地址
+export const updateAddr = (addresses) => request({
+  url: `/api/accounts/info/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
+  method: 'put',
+  data:{
+	  addresses
+  }
+})
+
+// 添加地址
+export const addAddr = (addresses) => request({
+  url: `/api/accounts/info/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
+  method: 'put',
+  data:{
+	  addresses
+  }
+})
+
+// 删除地址
+export const delAddr = (addresses) => request({
+  url: `/api/accounts/info/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
+  method: 'put',
+  data:{
+	  addresses
+  }
+})

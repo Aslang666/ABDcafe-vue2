@@ -21,7 +21,7 @@
 						<view v-for="(list,index) in item.drinks" :key="index">
 							<view class="product" @click="(val)=>tapToDetail(val,list)">
 								<view class="product__img">
-									<image class="img" :src="baseUrl+list.main_image" mode="widthFix" />
+									<image class="img" :src="BASE_URL+list.main_image" />
 								</view>
 								<view class="product__names">
 									<view class="product__zh-name">{{list.name}}</view>
@@ -42,10 +42,11 @@
 		getDrinks,
 		getDrinksCategory
 	} from '../../router/api.js';
+	import {BASE_URL} from '../../router/request.js'
 	export default {
 		data() {
 			return {
-				baseUrl: 'http://192.168.0.15:8000',
+				BASE_URL:BASE_URL,
 				drinks: [],
 				categories: [],
 				menuList: [],

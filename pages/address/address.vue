@@ -1,33 +1,37 @@
 <template>
-	<view>
+	<view class="page">
 		<view class="bg"></view>
-		<view class="card">
+		<view class="card" v-if="addresses">
 		  <view >
-		    <view class="address" v-for="item in 3" :key="item">
+		    <view class="address" v-for="(item,index) in addresses" :key="index">
 		      <view class="address__content" >
 		        <view class="address__info">
-		          <text class="address__name">刘佩虹</text>
-		          <text class="address__tel">19874064526</text>
-		          <text class="address__default" >默认</text>
+		          <text class="address__name">{{item.name}}</text>
+		          <text class="address__tel">{{item.phone}}</text>
+		          <text class="address__default" v-if="item.is_default">默认</text>
 		        </view>
-				<!-- wx:if="{{item.isDefault}}" -->
+				
 		        <view class="address__addr">
 		          <!-- {{item.province}}{{item.city}}{{item.county}}{{item.addressDetail}} -->
-				  广东省广州市白云区石井街道聚源街123456865号杀杀杀杀杀杀
+				  广东省{{item.region}}{{item.address}}
 		        </view>
 		      </view>
-			  <view class="address__edit" @click="onCLickEdit">
+			  <view class="address__edit" @click="onCLickEdit(item)">
 			  <image class="address__edit" src="../../static/edit.png"></image>
 			  </view>
 		    </view>
 		  </view>
 		</view>
-		<view class="no_address">
+		<view class="no_address" v-else>
 			<view class="no_img">
 			  <image class="" src="../../static/noaddress.png"></image>
+			  <!-- <span>请添加收获地址</span> -->
 			</view>
+		</view>
+		<view class="no_address">
+			
 			<view class="no_text">
-				<span>请添加收获地址</span> 
+				<span>请添加收获地址</span>
 				<span><text>ABDcafé</text>美味直达您身边</span>
 				<button @click="toAddaddr">添加地址</button>
 			</view>
@@ -36,16 +40,17 @@
 </template>
 
 <script>
+	import {getinfo} from '../../router/api.js'
 	export default {
 		data() {
 			return {
-				
+				addresses:[]
 			}
 		},
 		methods: {
-			onCLickEdit(){
+			onCLickEdit(e){
 				uni.navigateTo({
-					url:'../editaddr/editaddr'
+					url:'../editaddr/editaddr?e=' + JSON.stringify(e)
 				})
 			},
 			toAddaddr(){
@@ -54,14 +59,21 @@
 					// url:`../editaddr/editaddr?exist=`
 				})
 			}
+		},
+		mounted() {
+			getinfo().then(res=>{
+				console.log(`用户信息：${res}`);
+				this.addresses = res.data.addresses
+			})
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	page{
-		background: #f6f6f6;
-	}
+	// .page{
+	// 	background: #f6f6f6 !important;
+	// 	height: 100%;
+	// }
 .bg {
   background-color: #0037ae;
   font-size: 14px;
@@ -123,8 +135,9 @@
 		height: 340px;	
 		}
 	}
+}
 	.no_text{
-		margin-top: -40px;
+		margin-top: 20px;
 		display: flex;
 		flex-direction: column;
 		margin-bottom: 20rpx;
@@ -140,6 +153,5 @@
 			background-color: #0037ae;
 		}
 	}
-}
 
 </style>

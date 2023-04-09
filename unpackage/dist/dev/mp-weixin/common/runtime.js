@@ -105,11 +105,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/home/banner":1,"components/home/personalinfo":1,"components/home/ways":1};
+/******/ 		var cssChunks = {"components/home/banner":1,"components/home/personalinfo":1,"components/home/ways":1,"components/personal/nologin":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/home/banner":"components/home/banner","components/home/personalinfo":"components/home/personalinfo","components/home/ways":"components/home/ways"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/home/banner":"components/home/banner","components/home/personalinfo":"components/home/personalinfo","components/home/ways":"components/home/ways","components/personal/nologin":"components/personal/nologin"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

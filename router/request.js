@@ -1,5 +1,5 @@
-// const BASE_URL = 'http://127.0.0.1:8000'
-const BASE_URL = 'http://192.168.0.15:8000'
+export const BASE_URL = 'http://127.0.0.1:8000'
+// const BASE_URL = 'http://192.168.0.15:8000'
 const refresh = uni.getStorageSync('refresh')
 // // 通过export向外暴露一个方法，方法名叫myRequest,调用myRequest方法时会向方法中传递一个对象options
 export const request = (options) => {

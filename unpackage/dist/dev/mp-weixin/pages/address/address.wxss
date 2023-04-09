@@ -24,9 +24,6 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-page.data-v-db675620 {
-  background: #f6f6f6;
-}
 .bg.data-v-db675620 {
   background-color: #0037ae;
   font-size: 14px;
@@ -87,8 +84,8 @@ page.data-v-db675620 {
   width: 340px;
   height: 340px;
 }
-.no_address .no_text.data-v-db675620 {
-  margin-top: -40px;
+.no_text.data-v-db675620 {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   margin-bottom: 20rpx;
@@ -97,10 +94,10 @@ page.data-v-db675620 {
   font-weight: 600;
   font-size: 18px;
 }
-.no_address .no_text text.data-v-db675620 {
+.no_text text.data-v-db675620 {
   color: #0037ae;
 }
-.no_address .no_text button.data-v-db675620 {
+.no_text button.data-v-db675620 {
   color: #fff;
   background-color: #0037ae;
 }

@@ -1,5 +1,6 @@
 <template>
-	<view class="container">
+	<view>
+	<view class="container" v-if="user">
 		<image class="bg" src="../../static/star.jpg" mode="widthFix" />
 		<view class="content">
 			<view class="profile">
@@ -26,13 +27,22 @@
 			</view>
 		</view>
 	</view>
+	<view class=""v-else>
+		<noLogin></noLogin>
+	</view>
+		</view>
 </template>
 
 <script>
+	import noLogin from '../../components/personal/nologin.vue'
 	export default{
+		components:{
+			noLogin
+		},
 		data(){
 			return{
 				user:uni.getStorageSync('user'),
+				access: uni.getStorageSync('access'),
 				settings: [{
 					name: '个人资料',
 					path: '../profile/profile',

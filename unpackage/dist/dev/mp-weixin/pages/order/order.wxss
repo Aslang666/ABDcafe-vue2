@@ -116,4 +116,37 @@
   font-size: medium;
   font-weight: bold;
 }
+.no_address.data-v-127632e4 {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.no_address .no_img.data-v-127632e4 {
+  display: flex;
+  justify-content: center;
+  width: 340px;
+  height: 340px;
+  margin: auto;
+}
+.no_address .no_img image.data-v-127632e4 {
+  width: 340px;
+  height: 340px;
+}
+.no_address .no_text.data-v-127632e4 {
+  margin-top: -40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20rpx;
+  text-align: center;
+  color: #595a5b;
+  font-weight: 600;
+  font-size: 18px;
+}
+.no_address .no_text text.data-v-127632e4 {
+  color: #0037ae;
+}
+.no_address .no_text button.data-v-127632e4 {
+  color: #fff;
+  background-color: #0037ae;
+}
 
