@@ -3,7 +3,7 @@
 		<view class="header">
 			<!-- <image class="header__img" :src="baseUrl+product.main_image" mode="widthFix" /> -->
 			<view class="uni-margin-wrap">
-				<swiper class="swiper" circular indicator-dots="indicatorDots" autoplay="autoplay" interval="interval"
+				<swiper class="swiper" circular :indicator-dots="indicatorDots" :autoplay="autoplay"  :interval="interval"
 					duration="duration">
 					<swiper-item v-for="(banner,index) in product.detail_images" :key="index">
 						<view class="swiper-item uni-bg-red">
@@ -87,12 +87,17 @@
 		components: {},
 		data() {
 			return {
+				duration: 500,
+				indicatorDots: true,
+				autoplay: true,
+				interval: 2000,
 				BASE_URL: BASE_URL,
 				showsubmit: false,
 				current: 0,
 				product: {},
 				detail: '',
 				isLike: false,
+				imageList:[],
 				form: {
 					drinks: {
 						id: '',
@@ -165,6 +170,10 @@
 			this.form.drinks.price = this.product.price
 			this.form.unit_price = this.product.price
 			this.form.drinks.status = this.product.status
+			
+			
+			
+						// console.log(this.imageList);
 			// this.getCoffeeDetail()
 			// this.checkIsLike()
 			console.log(this.form);

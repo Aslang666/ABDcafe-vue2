@@ -52,7 +52,7 @@
 									// console.log("用户个人信息" + JSON.stringify(e));
 									console.log(e);
 									uni.setStorageSync('user', e.data)
-									uni.redirectTo({
+									uni.reLaunch({
 										url: '../index/index',
 									})
 								})

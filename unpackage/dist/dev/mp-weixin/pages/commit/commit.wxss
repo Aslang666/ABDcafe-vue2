@@ -56,6 +56,13 @@
   font-size: smaller;
   vertical-align: top;
 }
+.unit_price.data-v-3966e1e6 {
+  margin-left: 20rpx;
+  color: #0037ae;
+  font-size: smaller;
+  vertical-align: top;
+  font-weight: bold;
+}
 .product__en-name.data-v-3966e1e6 {
   flex-grow: 1;
   color: #8e8e8e;
@@ -68,6 +75,11 @@
 .product__price.data-v-3966e1e6 {
   color: #0037ae;
   font-weight: bold;
+}
+.total_price.data-v-3966e1e6 {
+  color: #0037ae;
+  font-weight: bold;
+  font-size: normal;
 }
 .product__count.data-v-3966e1e6 {
   flex-shrink: 0;

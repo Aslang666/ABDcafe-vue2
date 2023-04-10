@@ -7,26 +7,28 @@
 			</view>
 			<view class="address__content address__view">
 				<view class="address__info" style="display: flex; gap: 32rpx;">
-					<view style="color: #0037ae; font-weight: bold;">刘佩虹</view>
-					<view>1984064526</view>
-					<!-- v-if="{{addressList[checkedAddrIndex].isDefault}}" -->
-					<view class="address__default">默认</view>
+					<view style="color: #0037ae; font-weight: bold;">{{selectAddr.name}}</view>
+					<view>{{selectAddr.phone}}</view>
+					<view class="address__default" v-if="selectAddr.is_default">默认</view>
 				</view>
-				<text class="address__addr">广东省广州市白云区聚源街</text>
+				<text class="address__addr">{{selectAddr.region}}{{selectAddr.address}}</text>
 			</view>
 		</view>
 
 		<view class="card products-card">
 			<text>订单信息</text>
-			<view v-for="(item,index) in order.products" :key="index">
+			<view v-for="(item,index) in order.order_items" :key="index">
 				<view class="product">
 					<image class="product__img" src="../../static/abd.png" mode="widthFix" />
 					<view class="product__detail">
-						<view> {{item.name}} <text class="product__rule">{{item.rule.ice}}/{{item.rule.sugar}}</text></view>
-						<!-- <view class="product__en-name">{{item.enname}}</view> -->
-						<view class="product__price">¥ {{item.price}}</view>
+						<view> {{item.drinks.name}} <text
+								class="product__rule">{{item.ice_choice}}/{{item.sugar_choice}} </text>
+							<text class="unit_price"> ¥{{item.unit_price}}</text>
+						</view>
+						<view class="product__price">¥ {{item.total_price}}</view>
 					</view>
-					<view class="product__count">x{{item.count}}</view>
+					<!-- <text class="total_price">¥ {{item.total_price}}</text> -->
+					<view class="product__count">x{{item.quantity}}</view>
 				</view>
 			</view>
 		</view>
@@ -35,7 +37,7 @@
 			<view class="date">{{date}}</view>
 			<view class="count-text">
 				<text class="sum">共计 {{length}} 件</text>
-				<text class="price-sum">合计 ¥{{(order.priceSum)/100}}</text>
+				<text class="price-sum">合计 ¥{{(order.total_price)/100}}</text>
 			</view>
 		</view>
 
@@ -45,18 +47,20 @@
 			<van-button type="primary" size="large" color="#0037ae" round @click="onCommitTap">立即结算</van-button>
 		</view>
 
-		<van-popup v-show="addressPickerShow" position="bottom" closeable @close="onAddressPickerClose">
+		<van-popup :show="addressPickerShow" position="bottom" closeable @close="onAddressPickerClose">
 			<view class="address-wrapper">
 				<view class="address__title">选择地址</view>
-				<!-- <view v-for="(item,index) in addressList" :key="index">
-		      <view class="address" @tap="onCheckBoxChange" >
-		        <van-checkbox class="address__checkbox" value="{{ checkedAddrIndex==index }}" checked-color="#0037ae" />
-		        <view class="address__content">
-		          <text class="address__info">{{item.name}} {{item.tel}} <text v-if="item.isDefault" class="address__default">默认</text></text>
-		          <text class="address__addr">{{item.province}}{{item.city}}{{item.county}}{{item.addressDetail}}</text>
-		        </view>
-		      </view>
-		    </view> -->
+				<view v-for="(one,index) in addressList" :key="index">
+					<view class="address" :data-address="one" @tap="(val)=>onCheckBoxChange(val)">
+						<van-checkbox class="address__checkbox" @change="(val,index)=>onCheckChange(val,index)"
+							:value="checkedAddrIndex==index+1 " checked-color="#0037ae" />
+						<view class="address__content">
+							<text class="address__info">{{one.name}} {{one.phone}} <text v-if="one.isDefault"
+									class="address__default">默认</text></text>
+							<text class="address__addr">{{one.region}}{{one.address}}</text>
+						</view>
+					</view>
+				</view>
 				<van-button class="address__new" type="primary" size="large" color="#0037ae" round
 					@click="onNewAddressTap">新增地址</van-button>
 			</view>
@@ -66,35 +70,73 @@
 
 <script>
 	import util from '../../utils/util'
-
+	import {
+		getinfo,
+		addOrder
+	} from '../../router/api.js'
 	export default {
 		data() {
 			return {
 				addressPickerShow: false,
-				order: {},
+				order: {
+
+				},
 				length: 0,
 				date: util.formatTime(new Date()),
+				addressList: [],
+				checkedAddrIndex: 1,
+				selectAddr: {}
 			}
 		},
 		methods: {
 			onAddressPickerOpen() {
+
 				this.addressPickerShow = true
 			},
 			onAddressPickerClose() {
 				this.addressPickerShow = false
 			},
+			onCheckBoxChange(e, a) {
+				console.log(e);
+				console.log(e.currentTarget.dataset);
+				console.log(this.checkedAddrIndex);
+				this.checkedAddrIndex = e.currentTarget.dataset.address.id
+				this.selectAddr = e.currentTarget.dataset.address
+			},
+			onCheckChange(e) {
+				console.log(e);
+			},
 			onCommitTap() {
-				uni.navigateTo({
-					url:'/pages/order/order'
+				console.log(this.order);
+				// addOrder(this.order).then(res => {
+				// 	console.log(res);
+				// })
+				// uni.navigateTo({
+				// 	url: '/pages/order/order'
+				// })
+			},
+			// 新增地址
+			onNewAddressTap() {
+				uni.redirectTo({
+					url: '/pages/editaddr/editaddr'
 				})
 			}
 		},
 		onLoad(option) {
-			// console.log(option);
+			console.log(option.order);
 			this.order = JSON.parse(option.order)
-			// console.log(this.order.products.length);
-			this.length = this.order.products.length
+			console.log(this.order);
+			this.length = this.order.order_items.length
 		},
+		mounted() {
+			getinfo().then(res => {
+				// console.log(res);
+				this.addressList = res.data.addresses
+				this.selectAddr = this.addressList[0]
+				this.order.address = this.selectAddr
+				// console.log(this.selectAddr);
+			})
+		}
 	}
 </script>
 
@@ -137,6 +179,14 @@
 		vertical-align: top;
 	}
 
+	.unit_price {
+		margin-left: 20rpx;
+		color: #0037ae;
+		font-size: smaller;
+		vertical-align: top;
+		font-weight: bold;
+	}
+
 	.product__en-name {
 		flex-grow: 1;
 		color: #8e8e8e;
@@ -150,6 +200,12 @@
 	.product__price {
 		color: #0037ae;
 		font-weight: bold;
+	}
+
+	.total_price {
+		color: #0037ae;
+		font-weight: bold;
+		font-size: normal;
 	}
 
 	.product__count {

@@ -12,7 +12,7 @@
 
 			<van-cell-group inset>
 				<van-cell title="设为默认收货地址" center>
-					<van-switch slot="right-icon" :checked="address.is_default" @change="onDefaultChange"
+					<van-switch slot="right-icon" :checked="address.is_default" @change="(val)=>onDefaultChange(val)"
 						active-color="#0037ae" size="48rpx" />
 				</van-cell>
 			</van-cell-group>
@@ -20,12 +20,11 @@
 			<view style="margin: 48rpx 24rpx 0; " v-if="show">
 				<van-button type="primary" size="large" color="#0037ae" round
 					@click="saveAddr(address)">保存地址</van-button>
-					<van-button type="primary" size="large" color="#cf4347" round
-						@click="sureDel(address)">删除地址</van-button>
+				<van-button type="primary" size="large" color="#cf4347" round
+					@click="sureDel(address)">删除地址</van-button>
 			</view>
 			<view style="margin: 48rpx 24rpx 0;" v-else>
-				<van-button type="primary" size="large" color="#0037ae" round
-					@click="add(address)">添加地址</van-button>
+				<van-button type="primary" size="large" color="#0037ae" round @click="add(address)">添加地址</van-button>
 			</view>
 
 		</view>
@@ -52,8 +51,8 @@
 				columns: columns,
 				fieldValue: '',
 				cascaderValue: '',
-				isDefault: false,
-				id:0,
+				// isDefault: false,
+				id: 0,
 				address: {
 					name: '',
 					phone: '',
@@ -61,18 +60,23 @@
 					address: '',
 					is_default: false
 				},
-				show: true
+				show: false
 			}
 		},
 		onLoad(options) {
-			console.log(options);
+			console.log(options.e);
 			if (options.e) {
 				this.show = true
 				console.log(JSON.parse(options.e));
 				this.address = JSON.parse(options.e)
 			} else {
-				this.address = {}
 				this.show = false
+				this.address = {
+					name: '',
+					phone: '',
+					region: '',
+					address: '',
+					is_default: false}
 			}
 		},
 		methods: {
@@ -152,12 +156,12 @@
 								action: 'delete',
 								data: e
 							}
-								delAddr(addresses).then(res => {
-									console.log(res);
-									uni.redirectTo({
-										url: '../address/address'
-									})
+							delAddr(addresses).then(res => {
+								console.log(res);
+								uni.redirectTo({
+									url: '../address/address'
 								})
+							})
 						} else if (res.cancel) {
 							console.log('用户点击取消');
 						}

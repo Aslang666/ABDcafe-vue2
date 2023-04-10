@@ -1,7 +1,7 @@
 <template>
 	<view class="page">
 		<view class="bg"></view>
-		<view class="card" v-if="addresses">
+		<view class="card" v-if="addresses.length">
 		  <view >
 		    <view class="address" v-for="(item,index) in addresses" :key="index">
 		      <view class="address__content" >
@@ -49,6 +49,7 @@
 		},
 		methods: {
 			onCLickEdit(e){
+				console.log(e);
 				uni.navigateTo({
 					url:'../editaddr/editaddr?e=' + JSON.stringify(e)
 				})
@@ -62,8 +63,8 @@
 		},
 		mounted() {
 			getinfo().then(res=>{
-				console.log(`用户信息：${res}`);
 				this.addresses = res.data.addresses
+				// console.log(this.addresses.length);
 			})
 		}
 	}

@@ -45,7 +45,7 @@
 				uni.removeStorageSync('user')
 				uni.removeStorageSync('access')
 				uni.removeStorageSync('refresh')
-				wx.redirectTo({
+				uni.reLaunch({
 					url: '../index/index',
 				})
 			},

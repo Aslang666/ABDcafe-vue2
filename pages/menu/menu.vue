@@ -142,9 +142,9 @@
 	}
 
 	.sidebar-item.active {
-		background-color: #fff;
-		border-right: 2px solid #0d39a9;
-		color: #0d39a9;
+		background-color: #0d39a9;
+		// border-right: 2px solid #0d39a9;
+		color: #fff;
 		font-weight: 600;
 		padding-left: 2px;
 	}

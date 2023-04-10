@@ -21,14 +21,6 @@ export const getinfo = () => request({
   method: 'get',
 })
 
-//订单
-export const getorder = () => request({
-  url: `/api/order/order_list/`,
- headers:{
-	  "Authorization": 'Bearer '+uni.getStorageSync('access')
-  },
-  method: 'get',
-})
 
 // 获取饮品菜单
 export const getDrinks = () => request({
@@ -94,4 +86,30 @@ export const delAddr = (addresses) => request({
   data:{
 	  addresses
   }
+})
+
+export const addOrder = (order)=>request({
+  url: `/api/order/order/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
+  method: 'post',
+  data:{
+	  order
+  }
+})
+
+//订单
+export const getorder = () => request({
+  url: `/api/order/order_list/`,
+ headers:{
+	  "Authorization": 'Bearer '+uni.getStorageSync('access')
+  },
+  method: 'get',
+})
+
+// 活动
+export const getActivities= () => request({
+  url: `/api/activity/activity_list/`,
+  method: 'get',
 })
